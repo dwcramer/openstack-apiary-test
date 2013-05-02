@@ -9,6 +9,8 @@ To get started with the APIs, see the OpenStack API Quick Start . For detailed i
 
 ---       
    
+    
+
 --
 Identity Service API 2.0
     
@@ -39,6 +41,8 @@ GET v2.0/tenants
 < 200
 < Content-Type: application/json
 {}
+
+    
 
 --
 Compute API 2
@@ -1862,12 +1866,16 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                            }
                            }
                         
+    
+
 --
 Compute API 2 Extensions
     
 Adds capabilities to the core Compute API. Use extensions to add features, MIME types, actions, states, headers, parameters, and resources to the core API. Query the Compute API to list available extensions with a GET request to v2/extensions.
     
 --
+
+    
 
 --
 Server Admin Actions
@@ -2009,6 +2017,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
                               }
                               
                            
+    
+
 --
 Agents
     
@@ -2089,6 +2099,8 @@ PUT v2/{tenant_id}/os-agents/{id}
                               }
                               }
                            
+    
+
 --
 Host Aggregates
     
@@ -2282,6 +2294,8 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
                               }
                               }
                            
+    
+
 --
 Cloudpipe
     
@@ -2331,6 +2345,8 @@ POST v2/{tenant_id}/os-cloudpipe/configure-project
 < Content-Type: application/json
 {}
 
+    
+
 --
 Server Console Output
     
@@ -2352,6 +2368,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
                               "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
                               }
                            
+    
+
 --
 Server VNC Console
     
@@ -2375,6 +2393,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
                               }
                               
                            
+    
+
 --
 Server - Extended Create
     
@@ -2493,6 +2513,8 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+    
+
 --
 Server Force Delete or Restore
     
@@ -2519,6 +2541,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Server Diagnostics
@@ -2555,6 +2579,8 @@ GET v2/{tenant_id}/servers/{server_id}/diagnostics
                               "vnet0_tx_drop":0
                               }
                            
+    
+
 --
 Disk Config
     
@@ -2925,6 +2951,8 @@ GET v2/{tenant_id}/images/detail
                               }
                               
                            
+    
+
 --
 Extended Availability Zones
     
@@ -3060,6 +3088,8 @@ GET v2/{tenant_id}/servers/detail
                               }
                               
                            
+    
+
 --
 Image Size
     
@@ -3342,6 +3372,8 @@ GET v2/{tenant_id}/v2/images/{image_id}
 < Content-Type: application/json
 {}
 
+    
+
 --
 Server IP Type
     
@@ -3479,6 +3511,8 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+    
+
 --
 Server Extended Attributes
     
@@ -3620,6 +3654,8 @@ GET v2/servers/{server_id}
                               }
                               }
                            
+    
+
 --
 Extended Instance Status
     
@@ -3830,6 +3866,8 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+    
+
 --
 Fixed IPs
     
@@ -3871,6 +3909,8 @@ POST v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Flavor Access
@@ -4082,6 +4122,8 @@ DELETE v2/{tenant_id}/flavors/{flavor_id}/action
                               "flavor_access": []
                               }
                            
+    
+
 --
 Flavor Extra-Specs
     
@@ -4139,6 +4181,8 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs/{key_id}
                               "key1": "value1"
                               }
                            
+    
+
 --
 Flavors with the rxtx_factor Extended Attribute
     
@@ -4310,6 +4354,8 @@ GET v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
 {}
+
+    
 
 --
 Flavors with Extended Attributes
@@ -4483,6 +4529,8 @@ GET v2/{tenant_id}/flavors/detail
 < Content-Type: application/json
 {}
 
+    
+
 --
 Flavors Create or Delete
     
@@ -4525,6 +4573,8 @@ DELETE v2/{tenant_id}/flavors/{flavor_id}
 < 204
 < Content-Type: application/json
 {}
+
+    
 
 --
 Floating IP DNS
@@ -4668,6 +4718,8 @@ GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
                               }
                               
                            
+    
+
 --
 Floating IP Pools
     
@@ -4694,6 +4746,8 @@ GET v2/{tenant_id}/os-floating-ip-pools
                               ]
                               }
                            
+    
+
 --
 Floating IPs Bulk
     
@@ -4787,6 +4841,8 @@ GET v2/{tenant_id}/os-floating-ips-bulk/{host_name}
                               ]
                               }
                            
+    
+
 --
 Floating IPs
     
@@ -4901,6 +4957,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Hosts
@@ -5025,6 +5083,8 @@ GET v2/{tenant_id}/os-hosts/{host_name}/reboot
                               "power_action": "reboot"
                               }
                            
+    
+
 --
 Hypervisors
     
@@ -5071,6 +5131,8 @@ GET v2/{tenant_id}/os-hypervisors
                               
                               }
                            
+    
+
 --
 Server List Actions or Get Action Details
     
@@ -5145,6 +5207,8 @@ GET v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
                               }
                               }
                            
+    
+
 --
 Keypairs
     
@@ -5213,6 +5277,8 @@ GET v2/{tenant_id}/os-keypairs/{keypair_name}
                               }
                               
                            
+    
+
 --
 Servers - Multiple Create
     
@@ -5250,6 +5316,8 @@ POST v2/{tenant_id}/servers
                               "reservation_id": "r-3fhpjulh"
                               }
                            
+    
+
 --
 Networks
     
@@ -5450,6 +5518,8 @@ POST v2/{tenant_id}/os-networks/{id}/action
 < Content-Type: application/json
 {}
 
+    
+
 --
 Quota Sets
     
@@ -5530,6 +5600,8 @@ GET v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
                               }
                               
                            
+    
+
 --
 Server Rescue
     
@@ -5558,6 +5630,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Scheduler Hints
@@ -5591,6 +5665,8 @@ POST v2/{tenant_id}/servers
                               }
                               }
                            
+    
+
 --
 Security Groups
     
@@ -5706,6 +5782,8 @@ GET v2/{tenant_id}/servers/{server_id}/os-security-groups
                               ]
                               }
                            
+    
+
 --
 Server Password
     
@@ -5748,6 +5826,8 @@ POST v2/servers/{server_id}/os-server-password
                               }
                               }
                            
+    
+
 --
 Server Start and Stop
     
@@ -5774,6 +5854,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Manage Services
@@ -5857,6 +5939,8 @@ PUT v2/{tenant_id}/os-services/disable
                               }
                               }
                            
+    
+
 --
 Simple Usage
     
@@ -5922,6 +6006,8 @@ GET v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
                               }
                               }
                            
+    
+
 --
 Used Limits
     
@@ -6004,6 +6090,8 @@ GET v2/{tenant_id}/limits
                               }
                               
                            
+    
+
 --
 Virtual Interfaces
     
@@ -6026,6 +6114,8 @@ POST v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
                               ]
                               }
                            
+    
+
 --
 Volume Attachments
     
@@ -6111,6 +6201,8 @@ DELETE v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Volume Extension to Compute
@@ -6422,6 +6514,8 @@ HTTP/1.1 202 Accepted
                               Date: Mon, 05 Dec 2011 16:23:10 GMT
                               
                            
+    
+
 --
 Image Service API 1
     
@@ -6564,6 +6658,8 @@ GET v1/shared-images/{owner}
 < 200
 < Content-Type: application/json
 {}
+
+    
 
 --
 Block Storage API 2.0
@@ -6994,6 +7090,8 @@ DELETE v2/{tenant_id}/snapshots/{snapshot_id}
 < 202
 < Content-Type: application/json
 {}
+
+    
 
 --
 Object Storage API 1.0
