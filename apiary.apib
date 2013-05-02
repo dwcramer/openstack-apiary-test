@@ -1,19 +1,21 @@
 HOST: http://localhost:5000        
---- OpenStack API Reference ---
-Use the following OpenStack APIs in your OpenStack cloud: Identity service, Compute, Compute extensions, Image service, Block Storage, and Object Storage. You must install the packages for each API separately. After you authenticate through the Identity service API, you can use the other APIs and extensions to launch server instances, create images, assign metadata to instances and images, create containers and objects, and complete other actions in your OpenStack cloud.
+
+--- Debug OpenStack ---
+
+---
+Use the following OpenStack APIs in your OpenStack cloud: Identity service, Compute, Compute extensions, Image service, Block Storage, and Object Storage.
+You must install the packages for each API separately. After you authenticate through the Identity service API, you can use the other APIs and extensions to launch server instances,
+create images, assign metadata to instances and images, create containers and objects, and complete other actions in your OpenStack cloud.
     
 To get started with the APIs, see the OpenStack API Quick Start . For detailed information, read descriptions or specifications for each API.
-    
+---
+
 
 --
+Authenticate
+--
+
 Gets an authentication token that permits access to the Compute API for 24 hours. The version of the Identity API is 2.0.
-    
-
-    
-### Authenticate
-           
-
-    
 POST v2.0/tokens
 > Content-Type: application/json
 > Accept: application/json{ "auth":{ "passwordCredentials":{ "username":"test_user", "password":"mypass" }, "tenantName":"customer-x" } }
@@ -21,11 +23,7 @@ POST v2.0/tokens
 < Content-Type: application/json
 {}
 
-    
 ### List Tenants
-           
-
-    
 GET v2.0/tenants
 > Content-Type: application/json
 > Accept: application/json
@@ -34,15 +32,11 @@ GET v2.0/tenants
 {}
 
 --
---
+VM
 Launches virtual machines (VMs) based on the images uploaded to the system. Also, connects to a server instance securely through SSH once it starts and reboots or resizes server instances as needed. API v1.1 is identical to API v2.
-    
+--
 
-    
 ### Version Details
-           
-
-    
 GET v2
 < 200
 < Content-Type: application/json
@@ -61,12 +55,9 @@ GET v2
                            }
                            ]
                            }
-                        
-    
-### List Extensions
-           
 
-    
+
+### List Extensions
 GET v2/{tenant_id}/extensions
 < 200
 < Content-Type: application/json
@@ -510,13 +501,9 @@ GET v2/{tenant_id}/extensions
                            }
                            ]
                            }
-                           
-                        
-    
-### Get Extension
-           
 
-    
+
+### Get Extension    
 GET v2/{tenant_id}/extensions/{alias}
 < 200
 < Content-Type: application/json
@@ -530,12 +517,9 @@ GET v2/{tenant_id}/extensions/{alias}
                            "links": []
                            }
                            }
-                        
-    
-### List Limits
-           
 
-    
+
+### List Limits
 GET v2/{tenant_id}/limits
 < 200
 < Content-Type: application/json
@@ -624,12 +608,10 @@ GET v2/{tenant_id}/limits
                            ]
                            }
                            }
-                        
-    
-### List Servers
-           
 
-    
+-- Servers --
+
+### List Servers
 GET v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json
@@ -653,12 +635,9 @@ GET v2/{tenant_id}/servers
                            }
                            ]
                            }
-                        
-    
-### Create Server
-           
 
     
+### Create Server
 POST v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
@@ -680,12 +659,9 @@ POST v2/{tenant_id}/servers
                            ]
                            }
                            }
-                        
-    
-### List Detail Servers
-           
 
-    
+
+### List Detail Servers
 GET v2/{tenant_id}/servers/detail
 > Content-Type: application/json
 > Accept: application/json
@@ -747,12 +723,13 @@ GET v2/{tenant_id}/servers/detail
                            }
                            ]
                            }
-                        
-    
-### Get Server Details
-           
 
-    
+
+--
+Instance basic details
+--
+
+### Get Server Details
 GET v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
@@ -810,12 +787,9 @@ GET v2/{tenant_id}/servers/{server_id}
                            "user_id": "fake"
                            }
                            }
-                        
-    
-### Update Server Name / Administrative Password
-           
 
-    
+
+### Update Server Name / Administrative Password
 PUT v2/{tenant_id}/servers/{server_id}
 > Content-Type: application/json
 > Accept: application/json{ "changePassword" : { "adminPass" : "foo" } }
@@ -823,21 +797,19 @@ PUT v2/{tenant_id}/servers/{server_id}
 < Content-Type: application/json
 {}
 
-    
-### Delete Server
-           
 
-    
+### Delete Server
 DELETE v2/{tenant_id}/servers/{server_id}
 < 204
 < Content-Type: application/json
 {}
 
-    
-### Create or Replace Metadata
-           
 
-    
+--
+Instance metadata
+--
+
+### Create or Replace Metadata
 PUT v2/{tenant_id}/servers/{server_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "meta" : { "foo" : "Bar Value" } }
@@ -848,12 +820,9 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata
                            "foo": "Bar Value"
                            }
                            }
-                        
-    
-### Update Metadata
-           
 
-    
+
+### Update Metadata
 POST v2/{tenant_id}/servers/{server_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "kernel_id": "False", "Label": "UpdatedImage" } }
@@ -868,12 +837,9 @@ POST v2/{tenant_id}/servers/{server_id}/metadata
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### List Metadata
-           
 
-    
+
+### List Metadata
 GET v2/{tenant_id}/servers/{server_id}/metadata
 < 200
 < Content-Type: application/json
@@ -885,12 +851,9 @@ GET v2/{tenant_id}/servers/{server_id}/metadata
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### Get Metadata Item
-           
 
-    
+
+### Get Metadata Item
 GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
 < 200
 < Content-Type: application/json
@@ -902,12 +865,9 @@ GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### Create or Update Metadata Item
-           
 
-    
+
+### Create or Update Metadata Item
 PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "auto_disk_config": "True", "Label": "Changed" } }
@@ -919,22 +879,18 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
                            "auto_disk_config": "True"
                            }
                            }
-                        
-    
-### Delete Metadata Item
-           
 
-    
+
+### Delete Metadata Item
 DELETE v2/{tenant_id}/servers/{server_id}/metadata/{key}
 < 204
 < Content-Type: application/json
 {}
 
-    
-### Change Password
-           
 
-    
+-- One instance Action(s) --
+
+### Change Password
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "changePassword" : { "adminPass" : "foo" } }
@@ -942,11 +898,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < Content-Type: application/json
 {}
 
-    
-### Reboot Server
-           
 
-    
+### Reboot Server
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "reboot" : { "type" : "SOFT" } }
@@ -954,11 +907,8 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < Content-Type: application/json
 {}
 
-    
-### Rebuild Server
-           
 
-    
+### Rebuild Server
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "rebuild" : { "imageRef" : "http://openstack.example.com/v2/32278/images/70a599e0-31e7-49b7-b260-868f441e862b", "name" : "foobar", "adminPass" : "seekr3t", "accessIPv4" : "1.2.3.4", "accessIPv6" : "fe80::100", "metadata" : { "meta var" : "meta val" }, "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBp dCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5k IGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVs c2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4g QnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRo ZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlv dSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vy c2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6 b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
@@ -1019,12 +969,9 @@ POST v2/{tenant_id}/servers/{server_id}/action
                            "user_id": "fake"
                            }
                            }
-                        
-    
-### Resize Server
-           
 
-    
+
+### Resize Server
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "resize" : { "flavorRef" : "2" } }
@@ -1046,9 +993,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 
     
 ### Revert Resized Server
-           
-
-    
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "revertResize" : null }
@@ -1058,9 +1002,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 
     
 ### Create Image
-           
-
-    
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "createImage" : { "name" : "foo-image", "metadata": { "myvar": "foobar" } } }
@@ -1068,11 +1009,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < Content-Type: application/json
 {}
 
-    
-### List Addresses
-           
 
-    
+-- List of servers --
+
+### List Addresses
 GET v2/{tenant_id}/servers/ips
 > Content-Type: application/json
 > Accept: application/json
@@ -1110,13 +1050,9 @@ GET v2/{tenant_id}/servers/ips
                            ]
                            }
                            }
-                           
-                        
-    
-### List Addresses by Network
-           
 
-    
+
+### List Addresses by Network
 GET v2/{tenant_id}/servers/ips/{network_id}
 > Content-Type: application/json
 > Accept: application/json
@@ -1133,13 +1069,11 @@ GET v2/{tenant_id}/servers/ips/{network_id}
                            ]
                            }
                            }
-                           
-                        
-    
-### List Images
-           
 
-    
+
+-- Images --
+
+### List Images
 GET v2/{tenant_id}/images
 > Content-Type: application/json
 > Accept: application/json
@@ -1282,12 +1216,10 @@ GET v2/{tenant_id}/images
                            }
                            ]
                            }
-                        
-    
-### List Detail Images
-           
 
-    
+
+### List Detail Images
+
 GET v2/{tenant_id}/images/detail
 > Content-Type: application/json
 > Accept: application/json
@@ -1505,11 +1437,9 @@ GET v2/{tenant_id}/images/detail
                            }
                            ]
                            }
-                        
-    
-### Get Image Details
-           
 
+
+### Get Image Details
     
 GET v2/{tenant_id}/images/{image_id}
 < 200
@@ -1547,21 +1477,17 @@ GET v2/{tenant_id}/images/{image_id}
                            "updated": "2011-01-01T01:02:03Z"
                            }
                            }
-                        
-    
-### Delete Image
-           
 
+
+### Delete Image
     
 DELETE v2/{tenant_id}/images/{image_id}
 < 204
 < Content-Type: application/json
 {}
 
-    
-### Create or Replace Metadata
-           
 
+### Create or Replace Metadata
     
 PUT v2/{tenant_id}/images/{image_id}/metadata
 > Content-Type: application/json
@@ -1573,10 +1499,9 @@ PUT v2/{tenant_id}/images/{image_id}/metadata
                            "foo": "Bar Value"
                            }
                            }
-                        
-    
+
+
 ### Update Metadata
-           
 
     
 POST v2/{tenant_id}/images/{image_id}/metadata
@@ -1593,11 +1518,9 @@ POST v2/{tenant_id}/images/{image_id}/metadata
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### List Metadata
-           
 
+
+### List Metadata
     
 GET v2/{tenant_id}/images/{image_id}/metadata
 < 200
@@ -1610,11 +1533,9 @@ GET v2/{tenant_id}/images/{image_id}/metadata
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### Get Metadata Item
-           
 
+
+### Get Metadata Item
     
 GET v2/{tenant_id}/images/{image_id}/metadata/{key}
 < 200
@@ -1627,11 +1548,9 @@ GET v2/{tenant_id}/images/{image_id}/metadata/{key}
                            "ramdisk_id": "nokernel"
                            }
                            }
-                        
-    
-### Create or Update Metadata Item
-           
 
+
+### Create or Update Metadata Item
     
 PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
 > Content-Type: application/json
@@ -1644,21 +1563,19 @@ PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
                            "auto_disk_config": "True"
                            }
                            }
-                        
-    
-### Delete Metadata Item
-           
 
+
+### Delete Metadata Item
     
 DELETE v2/{tenant_id}/images/{image_id}/metadata/{key}
 < 204
 < Content-Type: application/json
 {}
 
-    
-### List Flavors
-           
 
+-- Flavors --
+
+### List Flavors
     
 GET v2/{tenant_id}/flavors
 > Content-Type: application/json
@@ -1739,11 +1656,9 @@ GET v2/{tenant_id}/flavors
                            }
                            ]
                            }
-                        
-    
-### List Detail Flavors
-           
 
+
+### List Detail Flavors
     
 GET v2/{tenant_id}/flavors/detail
 > Content-Type: application/json
@@ -1824,11 +1739,9 @@ GET v2/{tenant_id}/flavors/detail
                            }
                            ]
                            }
-                        
-    
-### Get Flavor Details
-           
 
+
+### Get Flavor Details
     
 GET v2/{tenant_id}/flavors/{flavor_id}
 < 200
@@ -1854,14 +1767,13 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                            }
                         
 --
---
+Compute API
+
 Adds capabilities to the core Compute API. Use extensions to add features, MIME types, actions, states, headers, parameters, and resources to the core API. Query the Compute API to list available extensions with a GET request to v2/extensions.
     
 Permits administrators to perform actions on a server.
-    
-
-           
-
+--
+               
     
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
@@ -1983,6 +1895,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
            
 
     
+    Creates, updates, and deletes guest agents. Use guest agents to access files on the disk, configure networking, or run other applications or scripts in the guest while it runs. This hypervisor-specific extension is not currently enabled for KVM. Use of guest agents is possible only if the underlying service provider uses the Xen driver.
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "evacuate": { "host": "TargetHost", "adminPass": "MySecretPass", "onSharedStorage": "True" } }
@@ -1991,14 +1904,11 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {
                               "adminPass": "MySecretPass"
                               }
-                              
-                           Creates, updates, and deletes guest agents. Use guest agents to access files on the disk, configure networking, or run other applications or scripts in the guest while it runs. This hypervisor-specific extension is not currently enabled for KVM. Use of guest agents is possible only if the underlying service provider uses the Xen driver.
-    
 
-    
+
+-- OS Agents --
+
 ### List Agents
-           
-
     
 GET v2/{tenant_id}/os-agents
 < 200
@@ -2016,11 +1926,9 @@ GET v2/{tenant_id}/os-agents
                               }
                               ]
                               }
-                           
-    
-### Create Agent
-           
 
+
+### Create Agent
     
 POST v2/{tenant_id}/os-agents
 > Content-Type: application/json
@@ -2038,10 +1946,9 @@ POST v2/{tenant_id}/os-agents
                               "version": "8.0"
                               }
                               }
-                           
-    
+
+
 ### Delete Agent
-           
 
     
 DELETE v2/{tenant_id}/os-agents
@@ -2051,9 +1958,8 @@ DELETE v2/{tenant_id}/os-agents
 
     
 ### Update Agent
-           
 
-    
+Creates and manages host aggregates. An aggregate assigns metadata to groups of compute nodes. Aggregates are only visible to the cloud provider.
 PUT v2/{tenant_id}/os-agents/{id}
 > Content-Type: application/json
 > Accept: application/json{ "para": { "url": "xxx://xxxx/xxx/xxx", "md5hash": "add6bb58e139be103324d04d82d8f545", "version": "7.0" } }
@@ -2067,7 +1973,6 @@ PUT v2/{tenant_id}/os-agents/{id}
                               "version": "7.0"
                               }
                               }
-                           Creates and manages host aggregates. An aggregate assigns metadata to groups of compute nodes. Aggregates are only visible to the cloud provider.
     
 
            
@@ -2235,6 +2140,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
            
 
     
+Manages virtual vpns for projects.
 POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "remove_host": { "host": "581d29b9e3504d8a895caddb13839b15" } }
@@ -2255,12 +2161,10 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
                               "updated_at": null
                               }
                               }
-                           Manages virtual vpns for projects.
-    
 
-           
 
-    
+-- OS CloudPipe --
+
 GET v2/{tenant_id}/os-cloudpipe
 < 200
 < Content-Type: application/json
@@ -2277,8 +2181,6 @@ GET v2/{tenant_id}/os-cloudpipe
                               }
                               ]
                               }
-                           
-           
 
     
 POST v2/{tenant_id}/os-cloudpipe
@@ -2289,8 +2191,6 @@ POST v2/{tenant_id}/os-cloudpipe
 {
                               "instance_id": "1e9b8425-34af-488e-b969-4d46f4a6382e"
                               }
-                           
-           
 
     
 POST v2/{tenant_id}/os-cloudpipe/configure-project
@@ -2299,14 +2199,10 @@ POST v2/{tenant_id}/os-cloudpipe/configure-project
 < 202
 < Content-Type: application/json
 {}
-Gets the output from the console log for a server.
-    
 
-    
+
 ### Get Console Output for Server Instance.
-           
-
-    
+Gets the output from the console log for a server.
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-getConsoleOutput": { "length": 50 } }
@@ -2315,30 +2211,21 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {
                               "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
                               }
-                           Accesses a VNC console for a specified server.
-    
 
-           
-
-    
+Accesses a VNC console for a specified server.
 POST v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-getVNCConsole":{ "type":"novnc" } }
 < 200
 < Content-Type: application/json
 {
-                              	"console": {
+                                  "console": {
                               		"type": "novnc",
                               		"url": "http://example.com:6080/vnc_auto.html?token=f9906a48-b71e-4f18-baca-c987da3ebdb3&title=dafa(75ecef58-3b8e-4659-ab3b-5501454188e9)"
                               	}
                               }
-                              
-                           Shows extra information when you create a server.
-    
 
-           
-
-    
+Shows extra information when you create a server.
 POST v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
@@ -2360,8 +2247,6 @@ POST v2/{tenant_id}/servers
                               ]
                               }
                               }
-                           
-           
 
     
 GET v2/{tenant_id}/servers/{server_id}
@@ -6914,8 +6799,6 @@ DELETE v1/{account}/{container}/{object}
 
     
 ### Copy Object
-           
-
     
 COPY v1/{account}/{container}/{object}
 > Content-Type: application/json
@@ -6926,21 +6809,12 @@ COPY v1/{account}/{container}/{object}
 
     
 ### Get Object Metadata
-           
-
     
 HEAD v1/{account}/{container}/{object}
 < 200
     
-    
-    
-    
 
-    
 ### Update Object Metadata
-           
-
-    
 POST v1/{account}/{container}/{object}
 > Content-Type: application/json
 > Accept: application/json
@@ -6948,4 +6822,3 @@ POST v1/{account}/{container}/{object}
 < Content-Type: application/json
 {}
 
---
