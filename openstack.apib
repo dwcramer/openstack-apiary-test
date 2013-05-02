@@ -6,8 +6,6 @@ To get started with the APIs, see the OpenStack API Quick Start . For detailed i
     
 
 --
-Identity Service API 2.0
-    
 Gets an authentication token that permits access to the Compute API for 24 hours. The version of the Identity API is 2.0.
     
 
@@ -37,8 +35,6 @@ GET v2.0/tenants
 
 --
 --
-Compute API 2
-    
 Launches virtual machines (VMs) based on the images uploaded to the system. Also, connects to a server instance securely through SSH once it starts and reboots or resizes server instances as needed. API v1.1 is identical to API v2.
     
 
@@ -1859,11 +1855,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                         
 --
 --
-Compute API 2 Extensions
-    
 Adds capabilities to the core Compute API. Use extensions to add features, MIME types, actions, states, headers, parameters, and resources to the core API. Query the Compute API to list available extensions with a GET request to v2/extensions.
-    
-Server Admin Actions
     
 Permits administrators to perform actions on a server.
     
@@ -2000,8 +1992,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
    "adminPass": "MySecretPass"
    }
    
-Agents
-    
 Creates, updates, and deletes guest agents. Use guest agents to access files on the disk, configure networking, or run other applications or scripts in the guest while it runs. This hypervisor-specific extension is not currently enabled for KVM. Use of guest agents is possible only if the underlying service provider uses the Xen driver.
     
 
@@ -2077,8 +2067,6 @@ PUT v2/{tenant_id}/os-agents/{id}
    "version": "7.0"
    }
    }
-Host Aggregates
-    
 Creates and manages host aggregates. An aggregate assigns metadata to groups of compute nodes. Aggregates are only visible to the cloud provider.
     
 
@@ -2267,8 +2255,6 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
    "updated_at": null
    }
    }
-Cloudpipe
-    
 Manages virtual vpns for projects.
     
 
@@ -2313,8 +2299,6 @@ POST v2/{tenant_id}/os-cloudpipe/configure-project
 < 202
 < Content-Type: application/json
 {}
-Server Console Output
-    
 Gets the output from the console log for a server.
     
 
@@ -2331,8 +2315,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {
    "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
    }
-Server VNC Console
-    
 Accesses a VNC console for a specified server.
     
 
@@ -2359,8 +2341,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
    <url>http://example.com:6080/vnc_auto.html?token=f9906a48-b71e-4f18-baca-c987da3ebdb3</url>
    </console>
    
-Server - Extended Create
-    
 Shows extra information when you create a server.
     
 
@@ -2474,8 +2454,6 @@ GET v2/{tenant_id}/servers/detail
    }
    ]
    }
-Server Force Delete or Restore
-    
 Restores or force-deletes a server when you deploy nova with deferred delete on.
     
 
@@ -2498,8 +2476,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
-Server Diagnostics
-    
 Gets the usage data for a server.
     
 
@@ -2530,8 +2506,6 @@ GET v2/{tenant_id}/servers/{server_id}/diagnostics
    "vnet0_rx":363725,
    "vnet0_tx_drop":0
    }
-Disk Config
-    
 Extends servers and images with a diskConfig attribute.
     
 
@@ -2897,8 +2871,6 @@ GET v2/{tenant_id}/images/detail
    ]
    }
    
-Extended Availability Zones
-    
 Shows the instance availability zone for compute nodes (nova-compute). Internal services appear in their own internal availability zone.
     
 
@@ -3029,8 +3001,6 @@ GET v2/{tenant_id}/servers/detail
    ]
    }
    
-Image Size
-    
 Lists details for available images or gets details for a specified image. Includes the OS-EXT-IMG-SIZE:size extended attribute, which shows the image size.
     
 
@@ -3308,8 +3278,6 @@ GET v2/{tenant_id}/v2/images/{image_id}
 < 200
 < Content-Type: application/json
 {}
-Server IP Type
-    
 Shows the type of the IP addresses assigned to an instance. Type is either fixed or floating.
     
 
@@ -3442,8 +3410,6 @@ GET v2/{tenant_id}/servers/detail
    }
    ]
    }
-Server Extended Attributes
-    
 Shows metadata for servers.
     
 
@@ -3580,8 +3546,6 @@ GET v2/servers/{server_id}
    "user_id": "fake"
    }
    }
-Extended Instance Status
-    
 Shows extended status information - vm_state, task_state, and power_state - in detailed server responses.
     
 
@@ -3787,8 +3751,6 @@ GET v2/{tenant_id}/servers/detail
    }
    ]
    }
-Fixed IPs
-    
 Shows data for a specified fixed IP, such as host name, CIDR, and address. Also, reserves or frees a fixed IP.
     
 
@@ -3826,8 +3788,6 @@ POST v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 < 202
 < Content-Type: application/json
 {}
-Flavor Access
-    
 Creates and gets details for private flavors. Also, lists, adds and removes tenants' access to private flavors.
     
 
@@ -4033,8 +3993,6 @@ DELETE v2/{tenant_id}/flavors/{flavor_id}/action
 {
    "flavor_access": []
    }
-Flavor Extra-Specs
-    
 Lists, creates, and updates the extra-specs or keys for a flavor.
     
 
@@ -4087,8 +4045,6 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs/{key_id}
 {
    "key1": "value1"
    }
-Flavors with the rxtx_factor Extended Attribute
-    
 Creates a flavor, gets details for a specified flavor, and lists details for available flavors. Includes the rxtx_factor extended attribute, related to configured bandwidth cap values.
     
 
@@ -4256,8 +4212,6 @@ GET v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
 {}
-Flavors with Extended Attributes
-    
 Creates a flavor, gets details for a flavor, and lists details for available flavors. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap extended attributes.
     
 
@@ -4425,8 +4379,6 @@ GET v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
 {}
-Flavors Create or Delete
-    
 Creates or deletes flavors.
     
 
@@ -4465,8 +4417,6 @@ DELETE v2/{tenant_id}/flavors/{flavor_id}
 < 204
 < Content-Type: application/json
 {}
-Floating IP DNS
-    
 Manages DNS records associated with IP addresses allocated by the Floating IPs extension. Requests are dispatched to a DNS driver selected at startup.
     
 
@@ -4604,8 +4554,6 @@ GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
    ]
    }
    
-Floating IP Pools
-    
 Manages groups of floating IPs.
     
 
@@ -4627,8 +4575,6 @@ GET v2/{tenant_id}/os-floating-ip-pools
    }
    ]
    }
-Floating IPs Bulk
-    
 Bulk creates, deletes, and lists floating IPs. By default, the pool is named nova. Use the os-floating-ip-pools extension to view available pools.
     
 
@@ -4717,8 +4663,6 @@ GET v2/{tenant_id}/os-floating-ips-bulk/{host_name}
    }
    ]
    }
-Floating IPs
-    
 Assigns and allocates floating IP addresses to instances that run in an OpenStack cloud.
     
 
@@ -4829,8 +4773,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
-Hosts
-    
 Manages physical hosts.
     
 
@@ -4949,8 +4891,6 @@ GET v2/{tenant_id}/os-hosts/{host_name}/reboot
    "host": "066bf157ab50481d8c607cfe584b2230",
    "power_action": "reboot"
    }
-Hypervisors
-    
 Displays extra statistical information from the machine that hosts the hypervisor through the API for the hypervisor (XenAPI or KVM/libvirt).
     
 
@@ -4992,8 +4932,6 @@ GET v2/{tenant_id}/os-hypervisors
    }
    
    }
-Server List Actions or Get Action Details
-    
 Permits all users to list available actions for a specified server. Permits administrators to get details for a specified action for a specified server.
     
 
@@ -5063,8 +5001,6 @@ GET v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
    "user_id": "789"
    }
    }
-Keypairs
-    
 Generates, imports, and deletes SSH keys.
     
 
@@ -5128,8 +5064,6 @@ GET v2/{tenant_id}/os-keypairs/{keypair_name}
    }
    }
    
-Servers - Multiple Create
-    
 Creates one or more servers with an optional reservation ID. The request and response examples show how to create multiple servers with or without a reservation ID.
     
 
@@ -5162,8 +5096,6 @@ POST v2/{tenant_id}/servers
 {
    "reservation_id": "r-3fhpjulh"
    }
-Networks
-    
 Shows network information for or deletes networks. Also, disassociates a network from a project if you use vlan mode.
     
 
@@ -5359,8 +5291,6 @@ POST v2/{tenant_id}/os-networks/{id}/action
 < 202
 < Content-Type: application/json
 {}
-Quota Sets
-    
 Permits administrators, depending on policy settings, to view quotas for a tenant and view and update default quotas.
     
 
@@ -5436,8 +5366,6 @@ GET v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
    }
    }
    
-Server Rescue
-    
 Rescues or unrescues a server.
     
 
@@ -5462,8 +5390,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
-Scheduler Hints
-    
 Provides information directly to the scheduler when you create a server.
     
 
@@ -5491,8 +5417,6 @@ POST v2/{tenant_id}/servers
    ]
    }
    }
-Security Groups
-    
 Creates, modifies, and deletes security groups and rules.
     
 
@@ -5603,8 +5527,6 @@ GET v2/{tenant_id}/servers/{server_id}/os-security-groups
    }
    ]
    }
-Server Password
-    
 This extension retrieves and resets the encrypted admin password set through metadata service.
     
 
@@ -5642,8 +5564,6 @@ POST v2/servers/{server_id}/os-server-password
    ]
    }
    }
-Server Start and Stop
-    
 Starts and stops a server.
     
 
@@ -5666,8 +5586,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 < 202
 < Content-Type: application/json
 {}
-Manage Services
-    
 Lists, enables, and disables Nova services in all hosts.
     
 
@@ -5745,8 +5663,6 @@ PUT v2/{tenant_id}/os-services/disable
    "status":"disabled"
    }
    }
-Simple Usage
-    
 Reports statistics on compute and storage resources.
     
 
@@ -5807,8 +5723,6 @@ GET v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
    "total_vcpus_usage": 1.0
    }
    }
-Used Limits
-    
 Extends limits to show the usage of per project limits. Shows information such as RAM or instance quotas usage.
     
 
@@ -5886,8 +5800,6 @@ GET v2/{tenant_id}/limits
    }
    }
    
-Virtual Interfaces
-    
 Lists the virtual interfaces for a specified server instance.
     
 
@@ -5905,8 +5817,6 @@ POST v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
    }
    ]
    }
-Volume Attachments
-    
 Attaches volumes created through the volume API to server instances. Also, lists volume attachments for a server instance, gets volume details for a volume attachment, and deletes a volume attachment.
     
 
@@ -5988,8 +5898,6 @@ DELETE v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 < 202
 < Content-Type: application/json
 {}
-Volume Extension to Compute
-    
 Manages volumes and snapshots for use with the Compute API.
     
 
@@ -6298,8 +6206,6 @@ HTTP/1.1 202 Accepted
 
 --
 --
-Image Service API 1
-    
 Loads images for use at launch time by the Compute API. Also, assigns metadata to images. Some cloud implementations do not expose this API and offer pretested images only.
     
 
@@ -6441,8 +6347,6 @@ GET v1/shared-images/{owner}
 
 --
 --
-Block Storage API 2.0
-    
 Manages volumes and snapshots for use with the Volume API (cinder services).
     
 
@@ -6871,8 +6775,6 @@ DELETE v2/{tenant_id}/snapshots/{snapshot_id}
 
 --
 --
-Object Storage API 1.0
-    
 Manages the accounts, containers, and objects in the object storage system.
     
 
