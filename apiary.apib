@@ -59,6 +59,7 @@ Launches virtual machines (VMs) based on the images uploaded to the system. Also
 GET v2
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "versions": [
                            {
@@ -75,6 +76,7 @@ GET v2
                            ]
                            }
                         
+EOT
     
 ### List Extensions
            
@@ -83,6 +85,7 @@ GET v2
 GET v2/{tenant_id}/extensions
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "extensions": [
                            {
@@ -525,6 +528,7 @@ GET v2/{tenant_id}/extensions
                            }
                            
                         
+EOT
     
 ### Get Extension
            
@@ -533,6 +537,7 @@ GET v2/{tenant_id}/extensions
 GET v2/{tenant_id}/extensions/{alias}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "extension": {
                            "name": "QuotaClasses",
@@ -544,6 +549,7 @@ GET v2/{tenant_id}/extensions/{alias}
                            }
                            }
                         
+EOT
     
 ### List Limits
            
@@ -552,6 +558,7 @@ GET v2/{tenant_id}/extensions/{alias}
 GET v2/{tenant_id}/limits
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "limits": {
                            "absolute": {
@@ -638,6 +645,7 @@ GET v2/{tenant_id}/limits
                            }
                            }
                         
+EOT
     
 ### List Servers
            
@@ -648,6 +656,7 @@ GET v2/{tenant_id}/servers
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "servers": [
                            {
@@ -667,6 +676,7 @@ GET v2/{tenant_id}/servers
                            ]
                            }
                         
+EOT
     
 ### Create Server
            
@@ -677,6 +687,7 @@ POST v2/{tenant_id}/servers
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                            "server": {
                            "adminPass": "MVk5HPrazHcG",
@@ -694,6 +705,7 @@ POST v2/{tenant_id}/servers
                            }
                            }
                         
+EOT
     
 ### List Detail Servers
            
@@ -704,6 +716,7 @@ GET v2/{tenant_id}/servers/detail
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "servers": [
                            {
@@ -761,6 +774,7 @@ GET v2/{tenant_id}/servers/detail
                            ]
                            }
                         
+EOT
     
 ### Get Server Details
            
@@ -769,6 +783,7 @@ GET v2/{tenant_id}/servers/detail
 GET v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "server": {
                            "accessIPv4": "",
@@ -824,6 +839,7 @@ GET v2/{tenant_id}/servers/{server_id}
                            }
                            }
                         
+EOT
     
 ### Update Server Name / Administrative Password
            
@@ -856,12 +872,14 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata
 > Accept: application/json{ "meta" : { "foo" : "Bar Value" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "meta": {
                            "foo": "Bar Value"
                            }
                            }
                         
+EOT
     
 ### Update Metadata
            
@@ -872,6 +890,7 @@ POST v2/{tenant_id}/servers/{server_id}/metadata
 > Accept: application/json{ "metadata": { "kernel_id": "False", "Label": "UpdatedImage" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "Label": "UpdatedImage",
@@ -882,6 +901,7 @@ POST v2/{tenant_id}/servers/{server_id}/metadata
                            }
                            }
                         
+EOT
     
 ### List Metadata
            
@@ -890,6 +910,7 @@ POST v2/{tenant_id}/servers/{server_id}/metadata
 GET v2/{tenant_id}/servers/{server_id}/metadata
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "architecture": "x86_64",
@@ -899,6 +920,7 @@ GET v2/{tenant_id}/servers/{server_id}/metadata
                            }
                            }
                         
+EOT
     
 ### Get Metadata Item
            
@@ -907,6 +929,7 @@ GET v2/{tenant_id}/servers/{server_id}/metadata
 GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "architecture": "x86_64",
@@ -916,6 +939,7 @@ GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
                            }
                            }
                         
+EOT
     
 ### Create or Update Metadata Item
            
@@ -926,6 +950,7 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
 > Accept: application/json{ "metadata": { "auto_disk_config": "True", "Label": "Changed" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "Label": "Changed",
@@ -933,6 +958,7 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
                            }
                            }
                         
+EOT
     
 ### Delete Metadata Item
            
@@ -977,6 +1003,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "rebuild" : { "imageRef" : "http://openstack.example.com/v2/32278/images/70a599e0-31e7-49b7-b260-868f441e862b", "name" : "foobar", "adminPass" : "seekr3t", "accessIPv4" : "1.2.3.4", "accessIPv6" : "fe80::100", "metadata" : { "meta var" : "meta val" }, "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBp dCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5k IGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVs c2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4g QnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRo ZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlv dSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vy c2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6 b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                            "server": {
                            "accessIPv4": "1.2.3.4",
@@ -1033,6 +1060,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
                            }
                            }
                         
+EOT
     
 ### Resize Server
            
@@ -1091,6 +1119,7 @@ GET v2/{tenant_id}/servers/ips
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "addresses": {
                            "public" : [
@@ -1125,6 +1154,7 @@ GET v2/{tenant_id}/servers/ips
                            }
                            
                         
+EOT
     
 ### List Addresses by Network
            
@@ -1135,6 +1165,7 @@ GET v2/{tenant_id}/servers/ips/{network_id}
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "network" {
                            "id" : "public",
@@ -1148,6 +1179,7 @@ GET v2/{tenant_id}/servers/ips/{network_id}
                            }
                            
                         
+EOT
     
 ### List Images
            
@@ -1158,6 +1190,7 @@ GET v2/{tenant_id}/images
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "images": [
                            {
@@ -1296,6 +1329,7 @@ GET v2/{tenant_id}/images
                            ]
                            }
                         
+EOT
     
 ### List Detail Images
            
@@ -1306,6 +1340,7 @@ GET v2/{tenant_id}/images/detail
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "images": [
                            {
@@ -1519,6 +1554,7 @@ GET v2/{tenant_id}/images/detail
                            ]
                            }
                         
+EOT
     
 ### Get Image Details
            
@@ -1527,6 +1563,7 @@ GET v2/{tenant_id}/images/detail
 GET v2/{tenant_id}/images/{image_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "image": {
                            "created": "2011-01-01T01:02:03Z",
@@ -1561,6 +1598,7 @@ GET v2/{tenant_id}/images/{image_id}
                            }
                            }
                         
+EOT
     
 ### Delete Image
            
@@ -1581,12 +1619,14 @@ PUT v2/{tenant_id}/images/{image_id}/metadata
 > Accept: application/json{ "meta" : { "foo" : "Bar Value" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "meta": {
                            "foo": "Bar Value"
                            }
                            }
                         
+EOT
     
 ### Update Metadata
            
@@ -1597,6 +1637,7 @@ POST v2/{tenant_id}/images/{image_id}/metadata
 > Accept: application/json{ "metadata": { "kernel_id": "False", "Label": "UpdatedImage" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "Label": "UpdatedImage",
@@ -1607,6 +1648,7 @@ POST v2/{tenant_id}/images/{image_id}/metadata
                            }
                            }
                         
+EOT
     
 ### List Metadata
            
@@ -1615,6 +1657,7 @@ POST v2/{tenant_id}/images/{image_id}/metadata
 GET v2/{tenant_id}/images/{image_id}/metadata
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "architecture": "x86_64",
@@ -1624,6 +1667,7 @@ GET v2/{tenant_id}/images/{image_id}/metadata
                            }
                            }
                         
+EOT
     
 ### Get Metadata Item
            
@@ -1632,6 +1676,7 @@ GET v2/{tenant_id}/images/{image_id}/metadata
 GET v2/{tenant_id}/images/{image_id}/metadata/{key}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "architecture": "x86_64",
@@ -1641,6 +1686,7 @@ GET v2/{tenant_id}/images/{image_id}/metadata/{key}
                            }
                            }
                         
+EOT
     
 ### Create or Update Metadata Item
            
@@ -1651,6 +1697,7 @@ PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
 > Accept: application/json{ "metadata": { "auto_disk_config": "True", "Label": "Changed" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "metadata": {
                            "Label": "Changed",
@@ -1658,6 +1705,7 @@ PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
                            }
                            }
                         
+EOT
     
 ### Delete Metadata Item
            
@@ -1678,6 +1726,7 @@ GET v2/{tenant_id}/flavors
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "flavors": [
                            {
@@ -1753,6 +1802,7 @@ GET v2/{tenant_id}/flavors
                            ]
                            }
                         
+EOT
     
 ### List Detail Flavors
            
@@ -1763,6 +1813,7 @@ GET v2/{tenant_id}/flavors/detail
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "flavors": [
                            {
@@ -1838,6 +1889,7 @@ GET v2/{tenant_id}/flavors/detail
                            ]
                            }
                         
+EOT
     
 ### Get Flavor Details
            
@@ -1846,6 +1898,7 @@ GET v2/{tenant_id}/flavors/detail
 GET v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "flavor": {
                            "disk": 0,
@@ -1866,6 +1919,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                            }
                            }
                         
+EOT
     
 
 --
@@ -2012,11 +2066,13 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "evacuate": { "host": "TargetHost", "adminPass": "MySecretPass", "onSharedStorage": "True" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "adminPass": "MySecretPass"
                               }
                               
                            
+EOT
     
 
 --
@@ -2034,6 +2090,7 @@ Creates, updates, and deletes guest agents. Use guest agents to access files on 
 GET v2/{tenant_id}/os-agents
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "agents": [
                               {
@@ -2048,6 +2105,7 @@ GET v2/{tenant_id}/os-agents
                               ]
                               }
                            
+EOT
     
 ### Create Agent
            
@@ -2058,6 +2116,7 @@ POST v2/{tenant_id}/os-agents
 > Accept: application/json{ "agent": { "hypervisor": "xen", "os": "os", "architecture": "x86", "version": "8.0", "md5hash": "add6bb58e139be103324d04d82d8f545", "url": "xxxxxxxxxxxx" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "agent": {
                               "agent_id": "1",
@@ -2070,6 +2129,7 @@ POST v2/{tenant_id}/os-agents
                               }
                               }
                            
+EOT
     
 ### Delete Agent
            
@@ -2090,6 +2150,7 @@ PUT v2/{tenant_id}/os-agents/{id}
 > Accept: application/json{ "para": { "url": "xxx://xxxx/xxx/xxx", "md5hash": "add6bb58e139be103324d04d82d8f545", "version": "7.0" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "agent": {
                               "agent_id": "1",
@@ -2099,6 +2160,7 @@ PUT v2/{tenant_id}/os-agents/{id}
                               }
                               }
                            
+EOT
     
 
 --
@@ -2114,6 +2176,7 @@ Creates and manages host aggregates. An aggregate assigns metadata to groups of 
 GET v2/{tenant_id}/os-aggregates
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregates": [
                               {
@@ -2132,6 +2195,7 @@ GET v2/{tenant_id}/os-aggregates
                               ]
                               }
                            
+EOT
            
 
     
@@ -2144,6 +2208,7 @@ POST v2/{tenant_id}/os-aggregates
 
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova",
@@ -2156,6 +2221,7 @@ POST v2/{tenant_id}/os-aggregates
                               }
                               }
                            
+EOT
            
 
     
@@ -2178,6 +2244,7 @@ GET v2/{tenant_id}/os-aggregates/{aggregate_id}
 
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova",
@@ -2195,6 +2262,7 @@ GET v2/{tenant_id}/os-aggregates/{aggregate_id}
                               }
                               
                            
+EOT
            
 
     
@@ -2203,6 +2271,7 @@ PUT v2/{tenant_id}/os-aggregates/{aggregate_id}
 > Accept: application/json{ "aggregate": { "name": "newname", "availability_zone": "nova2" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova2",
@@ -2219,6 +2288,7 @@ PUT v2/{tenant_id}/os-aggregates/{aggregate_id}
                               }
                               }
                            
+EOT
            
 
     
@@ -2227,6 +2297,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Accept: application/json{ "set_metadata": { "metadata": { "key": "value" } } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova",
@@ -2244,6 +2315,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
                               }
                               }
                            
+EOT
            
 
     
@@ -2252,6 +2324,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Accept: application/json{ "add_host": { "host": "581d29b9e3504d8a895caddb13839b15" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova",
@@ -2270,6 +2343,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
                               }
                               }
                            
+EOT
            
 
     
@@ -2278,6 +2352,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Accept: application/json{ "remove_host": { "host": "581d29b9e3504d8a895caddb13839b15" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "aggregate": {
                               "availability_zone": "nova",
@@ -2294,6 +2369,7 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
                               }
                               }
                            
+EOT
     
 
 --
@@ -2309,6 +2385,7 @@ Manages virtual vpns for projects.
 GET v2/{tenant_id}/os-cloudpipe
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "cloudpipes": [
                               {
@@ -2323,6 +2400,7 @@ GET v2/{tenant_id}/os-cloudpipe
                               ]
                               }
                            
+EOT
            
 
     
@@ -2331,10 +2409,12 @@ POST v2/{tenant_id}/os-cloudpipe
 > Accept: application/json{ "cloudpipe": { "project_id": "cloudpipe-059f21e3-c20e-4efc-9e7a-eba2ab3c6f9a" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "instance_id": "1e9b8425-34af-488e-b969-4d46f4a6382e"
                               }
                            
+EOT
            
 
     
@@ -2364,10 +2444,12 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "os-getConsoleOutput": { "length": 50 } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
                               }
                            
+EOT
     
 
 --
@@ -2385,6 +2467,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "os-getVNCConsole":{ "type":"novnc" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                                   "console": {
                               		"type": "novnc",
@@ -2393,6 +2476,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
                               }
                               
                            
+EOT
     
 
 --
@@ -2410,6 +2494,7 @@ POST v2/{tenant_id}/servers
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "adminPass": "MVk5HPrazHcG",
@@ -2427,12 +2512,14 @@ POST v2/{tenant_id}/servers
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/servers/{server_id}
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "accessIPv4": "",
@@ -2488,12 +2575,14 @@ GET v2/{tenant_id}/servers/{server_id}
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/servers/detail
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -2513,6 +2602,7 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+EOT
     
 
 --
@@ -2559,6 +2649,7 @@ Gets the usage data for a server.
 GET v2/{tenant_id}/servers/{server_id}/diagnostics
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "vnet0_tx_errors":0,
                               "vda_errors":-1,
@@ -2579,6 +2670,7 @@ GET v2/{tenant_id}/servers/{server_id}/diagnostics
                               "vnet0_tx_drop":0
                               }
                            
+EOT
     
 
 --
@@ -2596,6 +2688,7 @@ POST v2/{tenant_id}/servers
 > Accept: application/json{ "server":{ "name":"new-server-test", "imageRef":"http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef":"http://openstack.example.com/openstack/flavors/1", "metadata":{ "My Server Name":"Apache1" }, "personality":[ { "path":"/etc/banner.txt", "contents":"ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBp dCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5k IGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVs c2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4g QnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRo ZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlv dSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vy c2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6 b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "OS-DCF:diskConfig": "AUTO",
@@ -2614,12 +2707,14 @@ POST v2/{tenant_id}/servers
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "id": "52415800-8b69-11e0-9b19-734f565bc83b",
@@ -2678,6 +2773,7 @@ GET v2/{tenant_id}/servers/{server_id}
                               }
                               
                            
+EOT
            
 
     
@@ -2686,6 +2782,7 @@ PUT v2/{tenant_id}/servers/{server_id}
 > Accept: application/json{ "server": { "OS-DCF:diskConfig": "AUTO" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "OS-DCF:diskConfig": "AUTO",
@@ -2742,6 +2839,7 @@ PUT v2/{tenant_id}/servers/{server_id}
                               }
                               }
                            
+EOT
            
 
     
@@ -2760,6 +2858,7 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "rebuild": { "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "OS-DCF:diskConfig": "AUTO" } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "OS-DCF:diskConfig": "AUTO",
@@ -2817,12 +2916,14 @@ POST v2/{tenant_id}/servers/{server_id}/action
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -2883,12 +2984,14 @@ GET v2/{tenant_id}/servers/detail
                               }
                               
                            
+EOT
            
 
     
 GET v2/{tenant_id}/images/{image_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "image": {
                               "id": "52415800-8b69-11e0-9b19-734f5736d2a2",
@@ -2916,12 +3019,14 @@ GET v2/{tenant_id}/images/{image_id}
                               }
                               
                            
+EOT
            
 
     
 GET v2/{tenant_id}/images/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "images": [
                               {
@@ -2951,6 +3056,7 @@ GET v2/{tenant_id}/images/detail
                               }
                               
                            
+EOT
     
 
 --
@@ -2966,6 +3072,7 @@ Shows the instance availability zone for compute nodes (nova-compute). Internal 
 GET v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "OS-EXT-AZ:availability_zone": "nova",
@@ -3023,12 +3130,14 @@ GET v2/{tenant_id}/servers/{server_id}
                               }
                               
                            
+EOT
            
 
     
 GET v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -3088,6 +3197,7 @@ GET v2/{tenant_id}/servers/detail
                               }
                               
                            
+EOT
     
 
 --
@@ -3103,6 +3213,7 @@ Lists details for available images or gets details for a specified image. Includ
 GET v2/{tenant_id}/v2/images/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "images": [
                               {
@@ -3323,6 +3434,7 @@ GET v2/{tenant_id}/v2/images/detail
                               ]
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -3333,6 +3445,7 @@ GET v2/{tenant_id}/v2/images/detail
 GET v2/{tenant_id}/v2/images/{image_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "image": {
                               "OS-EXT-IMG-SIZE:size": "74185822",
@@ -3368,6 +3481,7 @@ GET v2/{tenant_id}/v2/images/{image_id}
                               }
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -3389,6 +3503,7 @@ Shows the type of the IP addresses assigned to an instance. Type is either fixed
 GET v2/{tenant_id}/servers/{server_id}/action
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "accessIPv4": "",
@@ -3445,6 +3560,7 @@ GET v2/{tenant_id}/servers/{server_id}/action
                               }
                               }
                            
+EOT
     
 ### List Servers IPs
            
@@ -3453,6 +3569,7 @@ GET v2/{tenant_id}/servers/{server_id}/action
 GET v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -3511,6 +3628,7 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+EOT
     
 
 --
@@ -3528,6 +3646,7 @@ Shows metadata for servers.
 GET v2/servers
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -3588,6 +3707,7 @@ GET v2/servers
                               ]
                               }
                            
+EOT
     
 ### Extended attributes for server show
            
@@ -3596,6 +3716,7 @@ GET v2/servers
 GET v2/servers/{server_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "OS-EXT-SRV-ATTR:host": "1169a68456af48238da47b1d5957a714",
@@ -3654,6 +3775,7 @@ GET v2/servers/{server_id}
                               }
                               }
                            
+EOT
     
 
 --
@@ -3671,6 +3793,7 @@ Shows extended status information - vm_state, task_state, and power_state - in d
 GET v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "id": "52415800-8b69-11e0-9b19-734f6af67565",
                               "tenant_id": "1234",
@@ -3798,6 +3921,7 @@ GET v2/{tenant_id}/servers/{server_id}
                               }
                               
                            
+EOT
     
 ### List Extended Status for Servers
            
@@ -3806,6 +3930,7 @@ GET v2/{tenant_id}/servers/{server_id}
 GET v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "servers": [
                               {
@@ -3866,6 +3991,7 @@ GET v2/{tenant_id}/servers/detail
                               ]
                               }
                            
+EOT
     
 
 --
@@ -3881,6 +4007,7 @@ Shows data for a specified fixed IP, such as host name, CIDR, and address. Also,
 GET v2/{tenant_id}/os-fixed-ips/{fixed_ip}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "fixed_ip": {
                               "address": "192.168.1.1",
@@ -3890,6 +4017,7 @@ GET v2/{tenant_id}/os-fixed-ips/{fixed_ip}
                               }
                               }
                            
+EOT
            
 
     
@@ -3925,6 +4053,7 @@ Creates and gets details for private flavors. Also, lists, adds and removes tena
 GET v2/{tenant_id}/flavors
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavors": [
                               {
@@ -4020,6 +4149,7 @@ GET v2/{tenant_id}/flavors
                               ]
                               }
                            
+EOT
            
 
     
@@ -4028,6 +4158,7 @@ POST v2/{tenant_id}/flavors
 > Accept: application/json{ "flavor": { "name": "test_flavor", "ram": 1024, "vcpus": 2, "disk": 10, "id": "10", "os-flavor-access:is_public": false } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "disk": 10,
@@ -4049,12 +4180,14 @@ POST v2/{tenant_id}/flavors
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "disk": 0,
@@ -4076,12 +4209,14 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/flavors/{flavor_id}/os-flavor-access
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor_access": [
                               {
@@ -4092,6 +4227,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-flavor-access
                               }
                               
                            
+EOT
            
 
     
@@ -4100,6 +4236,7 @@ POST v2/{tenant_id}/flavors/{flavor_id}/action
 > Accept: application/json{ "addTenantAccess": { "tenant": "admin" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor_access": [
                               {
@@ -4110,6 +4247,7 @@ POST v2/{tenant_id}/flavors/{flavor_id}/action
                               }
                               
                            
+EOT
            
 
     
@@ -4118,10 +4256,12 @@ DELETE v2/{tenant_id}/flavors/{flavor_id}/action
 > Accept: application/json{ "removeTenantAccess": { "tenant": "admin" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor_access": []
                               }
                            
+EOT
     
 
 --
@@ -4137,6 +4277,7 @@ Lists, creates, and updates the extra-specs or keys for a flavor.
 GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "extra_specs": {
                               "key1": "value1",
@@ -4144,6 +4285,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
                               }
                               }
                            
+EOT
            
 
     
@@ -4152,6 +4294,7 @@ POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 > Accept: application/json{ "extra_specs": { "key1": "value1", "key2": "value2" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "extra_specs": {
                               "key1": "value1",
@@ -4159,6 +4302,7 @@ POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
                               }
                               }
                            
+EOT
            
 
     
@@ -4167,20 +4311,24 @@ POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 > Accept: application/json{ "key1": "new_value1" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "key1": "new_value1"
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs/{key_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "key1": "value1"
                               }
                            
+EOT
     
 
 --
@@ -4198,6 +4346,7 @@ POST v2/{tenant_id}/flavors
 > Accept: application/json{ "flavor": { "name": "flavortest", "ram": 1024, "vcpus": 2, "disk": 10, "id": "100", "rxtx_factor": 2.0 } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "disk": 10,
@@ -4219,12 +4368,14 @@ POST v2/{tenant_id}/flavors
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "disk": 0,
@@ -4246,6 +4397,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                               }
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -4256,6 +4408,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
 GET v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavors": [
                               {
@@ -4351,6 +4504,7 @@ GET v2/{tenant_id}/flavors/detail
                               ]
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -4372,6 +4526,7 @@ POST v2/{tenant_id}/flavors
 > Accept: application/json{ "flavor": { "name": "flavortest", "ram": 1024, "vcpus": 2, "disk": 10, "id": "666", "rxtx_factor": 2.0, "OS-FLV-EXT-DATA:ephemeral": 30, "swap": 5 } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "OS-FLV-EXT-DATA:ephemeral": 30,
@@ -4393,12 +4548,14 @@ POST v2/{tenant_id}/flavors
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "OS-FLV-EXT-DATA:ephemeral": 0,
@@ -4420,6 +4577,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
                               }
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -4430,6 +4588,7 @@ GET v2/{tenant_id}/flavors/{flavor_id}
 GET v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavors": [
                               {
@@ -4525,6 +4684,7 @@ GET v2/{tenant_id}/flavors/detail
                               ]
                               }
                            
+EOT
 < 200
 < Content-Type: application/json
 {}
@@ -4546,6 +4706,7 @@ POST v2/{tenant_id}/flavors
 > Accept: application/json{ "flavor": { "name": "test_flavor", "ram": 1024, "vcpus": 2, "disk": 10, "id": "10" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "flavor": {
                               "disk": 10,
@@ -4566,6 +4727,7 @@ POST v2/{tenant_id}/flavors
                               }
                               }
                            
+EOT
            
 
     
@@ -4591,6 +4753,7 @@ Manages DNS records associated with IP addresses allocated by the Floating IPs e
 GET v2/{tenant_id}/os-floating-ip-dns
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               'domain_entries' :
                               [
@@ -4602,6 +4765,7 @@ GET v2/{tenant_id}/os-floating-ip-dns
                               }
                               
                            
+EOT
     
 ### Create a Domain
            
@@ -4612,6 +4776,7 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}
 > Accept: application/json# Sample body, public domain: { 'domain_entry' : { 'scope': 'public', 'project' : 'project1' } } # Sample body, public (projectless) domain: { 'domain_entry' : { 'scope': 'public' } } # Sample body, private domain: { 'domain_entry' : { 'scope': 'private', 'availability_domain': 'zone1' } }
 < 200
 < Content-Type: application/json
+<<<EOT
 # Sample Response, public domain (success):
                               {
                               'domain_entry' :
@@ -4633,6 +4798,7 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}
                               }
                               
                            
+EOT
     
 ### Delete a Domain
            
@@ -4653,6 +4819,7 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 > Accept: application/json{ 'dns_entry' : { 'ip': '192.168.53.11', 'dns_type': 'A' } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               'dns_entry' :
                               {
@@ -4662,6 +4829,7 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
                               }
                               
                            
+EOT
     
 ### Find Unique DNS Entry
            
@@ -4670,6 +4838,7 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               'dns_entry' :
                               {
@@ -4681,6 +4850,7 @@ GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
                               }
                               
                            
+EOT
     
 ### Delete a DNS entry
            
@@ -4699,6 +4869,7 @@ DELETE v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               'dns_entries' :
                               [
@@ -4718,6 +4889,7 @@ GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
                               }
                               
                            
+EOT
     
 
 --
@@ -4735,6 +4907,7 @@ Manages groups of floating IPs.
 GET v2/{tenant_id}/os-floating-ip-pools
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ip_pools": [
                               {
@@ -4746,6 +4919,7 @@ GET v2/{tenant_id}/os-floating-ip-pools
                               ]
                               }
                            
+EOT
     
 
 --
@@ -4763,6 +4937,7 @@ Bulk creates, deletes, and lists floating IPs. By default, the pool is named nov
 GET v2/{tenant_id}/os-floating-ips-bulk
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ip_info": [
                               {
@@ -4789,6 +4964,7 @@ GET v2/{tenant_id}/os-floating-ips-bulk
                               ]
                               }
                            
+EOT
     
 ### Create Floating IPs
            
@@ -4799,6 +4975,7 @@ POST v2/{tenant_id}/os-floating-ips-bulk
 > Accept: application/json{ "floating_ips_bulk_create" : { "ip_range": "192.168.1.0/24", "pool": "nova", "interface": "eth0" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ips_bulk_create": {
                               "interface": "eth0",
@@ -4807,6 +4984,7 @@ POST v2/{tenant_id}/os-floating-ips-bulk
                               }
                               }
                            
+EOT
     
 ### Bulk delete Floating IPs
            
@@ -4817,10 +4995,12 @@ POST v2/{tenant_id}/os-floating-ips-bulk/delete
 > Accept: application/json{ "ip_range": "192.168.1.0/24" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ips_bulk_delete": "192.168.1.0/24"
                               }
                            
+EOT
     
 ### List Floating IPs by host
            
@@ -4829,6 +5009,7 @@ POST v2/{tenant_id}/os-floating-ips-bulk/delete
 GET v2/{tenant_id}/os-floating-ips-bulk/{host_name}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ip_info": [
                               {
@@ -4841,6 +5022,7 @@ GET v2/{tenant_id}/os-floating-ips-bulk/{host_name}
                               ]
                               }
                            
+EOT
     
 
 --
@@ -4858,6 +5040,7 @@ Assigns and allocates floating IP addresses to instances that run in an OpenStac
 GET v2/{tenant_id}/os-floating-ips
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ips": [
                               {
@@ -4877,6 +5060,7 @@ GET v2/{tenant_id}/os-floating-ips
                               ]
                               }
                            
+EOT
     
 ### Allocate Floating IP
            
@@ -4887,6 +5071,7 @@ POST v2/{tenant_id}/os-floating-ips
 > Accept: application/json{ "pool": "nova" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ip": {
                               "fixed_ip": null,
@@ -4897,6 +5082,7 @@ POST v2/{tenant_id}/os-floating-ips
                               }
                               }
                            
+EOT
     
 ### List Floating IP Detail
            
@@ -4905,6 +5091,7 @@ POST v2/{tenant_id}/os-floating-ips
 GET v2/{tenant_id}/os-floating-ips
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "floating_ips": [
                               {
@@ -4924,6 +5111,7 @@ GET v2/{tenant_id}/os-floating-ips
                               ]
                               }
                            
+EOT
     
 ### Deallocate Floating IP
            
@@ -4973,6 +5161,7 @@ Manages physical hosts.
 GET v2/{tenant_id}/os-hosts
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "hosts": [
                               {
@@ -5009,12 +5198,14 @@ GET v2/{tenant_id}/os-hosts
                               }
                               
                            
+EOT
            
 
     
 GET v2/{tenant_id}/os-hosts/{host_name}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "host": [
                               {
@@ -5047,6 +5238,7 @@ GET v2/{tenant_id}/os-hosts/{host_name}
                               ]
                               }
                            
+EOT
            
 
     
@@ -5055,34 +5247,40 @@ PUT v2/{tenant_id}/os-hosts/{host_name}
 > Accept: application/json{ "status": "enable", "maintenance_mode": "disable" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "host": "0738dca90a8c43fdadd0be28715520e2",
                               "maintenance_mode": "off_maintenance",
                               "status": "enabled"
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/os-hosts/{host_name}/shutdown
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "host": "d2576862a2144ee6ad37d9e1938460a2",
                               "power_action": "shutdown"
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/os-hosts/{host_name}/reboot
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "host": "066bf157ab50481d8c607cfe584b2230",
                               "power_action": "reboot"
                               }
                            
+EOT
     
 
 --
@@ -5100,6 +5298,7 @@ GET v2/{tenant_id}/os-hypervisors
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "hypervisors": 
                               {
@@ -5109,6 +5308,7 @@ GET v2/{tenant_id}/os-hypervisors
                               
                               }
                            
+EOT
            
 
     
@@ -5117,6 +5317,7 @@ GET v2/{tenant_id}/os-hypervisors
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "hypervisors": 
                               {
@@ -5131,6 +5332,7 @@ GET v2/{tenant_id}/os-hypervisors
                               
                               }
                            
+EOT
     
 
 --
@@ -5148,6 +5350,7 @@ Permits all users to list available actions for a specified server. Permits admi
 GET v2/{tenant_id}/servers/{server_id}/os-instance-actions
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "instanceActions": [
                               {
@@ -5171,6 +5374,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-instance-actions
                               ]
                               }
                            
+EOT
     
 ### Get Action Details
            
@@ -5179,6 +5383,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-instance-actions
 GET v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "instanceAction": {
                               "action": "reboot",
@@ -5207,6 +5412,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
                               }
                               }
                            
+EOT
     
 
 --
@@ -5222,6 +5428,7 @@ Generates, imports, and deletes SSH keys.
 GET v2/{tenant_id}/os-keypairs
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "keypairs": [
                               {
@@ -5235,6 +5442,7 @@ GET v2/{tenant_id}/os-keypairs
                               ]
                               }
                            
+EOT
            
 
     
@@ -5243,6 +5451,7 @@ POST v2/{tenant_id}/os-keypairs
 > Accept: application/json{ "keypair": { "name": "keypair-dab428fe-6186-4a14-b3de-92131f76cd39", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDx8nkQv/zgGgB4rMYmIf+6A4l6Rr+o/6lHBQdW5aYd44bd8JttDCE/F/pNRr0lRE+PiqSPO8nDPHw0010JeMH9gYgnnFlyY3/OcJ02RhIPyyxYpv9FhY+2YiUkpwFOcLImyrxEsYXpD/0d3ac30bNH6Sw9JD9UZHYcpSxsIbECHw== Generated by Nova" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "keypair": {
                               "fingerprint": "1e:2c:9b:56:79:4b:45:77:f9:ca:7a:98:2c:b0:d5:3c",
@@ -5253,6 +5462,7 @@ POST v2/{tenant_id}/os-keypairs
                               }
                               }
                            
+EOT
            
 
     
@@ -5267,6 +5477,7 @@ DELETE v2/{tenant_id}/os-keypairs/{keypair_name}
 GET v2/{tenant_id}/os-keypairs/{keypair_name}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "keypair": {
                               "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDCSLxfzqB+e5yHdUSXvbxKkajjlfuhV+GArdseqPjfkKJ6no5echpin7dJp0FLXMJKxJZE3WWIRu25CQrJntmi7no27RkDfAGaTFbjz3DWY4A1HLeKAB5tFTwYQlr7CjMdoC/DY7UvKaatwLhH4Wvh5vMmXgF7AFzdkI28urwo+Q==
@@ -5277,6 +5488,7 @@ GET v2/{tenant_id}/os-keypairs/{keypair_name}
                               }
                               
                            
+EOT
     
 
 --
@@ -5294,6 +5506,7 @@ POST v2/{tenant_id}/servers
 > Accept: application/json{ "server" : { "name" : "new-server-test", "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef" : "http://openstack.example.com/openstack/flavors/1", "metadata" : { "My Server Name" : "Apache1" }, "min_count": "2", "max_count": "3", "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "adminPass": "wfksH3GTTseP",
@@ -5311,11 +5524,14 @@ POST v2/{tenant_id}/servers
                               }
                               }
                            
+EOT
 < Content-Type: application/json
+<<<EOT
 {
                               "reservation_id": "r-3fhpjulh"
                               }
                            
+EOT
     
 
 --
@@ -5335,6 +5551,7 @@ POST v2/{tenant_id}
 > Accept: application/json{ "network": [ { "bridge": "br234", "bridge_itnerface": "eth0", "cidr": "10.70.105.0/24", "label": "net234", "multi_host": "false", "vlan": 234 } ] }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "networks": [
                               {
@@ -5368,6 +5585,7 @@ POST v2/{tenant_id}
                               }
                               
                            
+EOT
     
 ### List Networks
            
@@ -5376,6 +5594,7 @@ POST v2/{tenant_id}
 GET v2/{tenant_id}/os-networks
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "networks": [
                               {
@@ -5409,6 +5628,7 @@ GET v2/{tenant_id}/os-networks
                               }
                               
                            
+EOT
     
 ### Add Network
            
@@ -5429,6 +5649,7 @@ POST v2/{tenant_id}/os-networks/add
 GET v2/{tenant_id}/os-networks/{id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "network": {
                               "bridge": "br100",
@@ -5460,6 +5681,7 @@ GET v2/{tenant_id}/os-networks/{id}
                               }
                               
                            
+EOT
     
 ### Delete Network
            
@@ -5533,6 +5755,7 @@ Permits administrators, depending on policy settings, to view quotas for a tenan
 GET v2/{tenant_id}/os-quota-sets/{tenant_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "quota_set": {
                               "cores": 20,
@@ -5551,6 +5774,7 @@ GET v2/{tenant_id}/os-quota-sets/{tenant_id}
                               }
                               
                            
+EOT
            
 
     
@@ -5559,6 +5783,7 @@ POST v2/{tenant_id}/os-quota-sets/{tenant_id}
 > Accept: application/json{ "quota_set": { "security_groups": 45 } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "quota_set": {
                               "cores": 20,
@@ -5576,12 +5801,14 @@ POST v2/{tenant_id}/os-quota-sets/{tenant_id}
                               }
                               
                            
+EOT
            
 
     
 GET v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "quota_set": {
                               "cores": 20,
@@ -5600,6 +5827,7 @@ GET v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
                               }
                               
                            
+EOT
     
 
 --
@@ -5617,10 +5845,12 @@ POST v2/{tenant_id}/servers/{server_id}/action
 > Accept: application/json{ "rescue": { "adminPass": "MySecretPass" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "adminPass": "MySecretPass"
                               }
                            
+EOT
            
 
     
@@ -5648,6 +5878,7 @@ POST v2/{tenant_id}/servers
 > Accept: application/json{ "server": { "name": "new-server-test", "imageRef": "70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef": "1" }, "os:scheduler_hints": { "hypervisor": "xen", "near": "2b7c42eb-7736-4a0f-afab-f23969a35ada" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "adminPass": "yjzytFHb7XHc",
@@ -5665,6 +5896,7 @@ POST v2/{tenant_id}/servers
                               }
                               }
                            
+EOT
     
 
 --
@@ -5680,6 +5912,7 @@ Creates, modifies, and deletes security groups and rules.
 GET v2/{tenant_id}/os-security-groups
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "security_groups": [
                               {
@@ -5692,6 +5925,7 @@ GET v2/{tenant_id}/os-security-groups
                               ]
                               }
                            
+EOT
            
 
     
@@ -5700,6 +5934,7 @@ POST v2/{tenant_id}/os-security-groups
 > Accept: application/json{ "security_group": { "name": "json-test", "description": "description" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "security_group": {
                               "description": "description",
@@ -5710,12 +5945,14 @@ POST v2/{tenant_id}/os-security-groups
                               }
                               }
                            
+EOT
            
 
     
 GET v2/{tenant_id}/os-security-groups/{security_group_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "security_group": {
                               "description": "default",
@@ -5726,6 +5963,7 @@ GET v2/{tenant_id}/os-security-groups/{security_group_id}
                               }
                               }
                            
+EOT
            
 
     
@@ -5742,6 +5980,7 @@ POST v2/{tenant_id}/os-security-group-rules
 > Accept: application/json{ "security_group_rule": { "ip_protocol": "tcp", "from_port": "80", "to_port": "8080", "cidr": "0.0.0.0/0", "group_id": "", "parent_group_id": "161" } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "security_group_rule": {
                               "from_port": 80,
@@ -5756,6 +5995,7 @@ POST v2/{tenant_id}/os-security-group-rules
                               }
                               }
                            
+EOT
            
 
     
@@ -5770,6 +6010,7 @@ DELETE v2/{tenant_id}/os-security-group-rules/{security_group_rule_id}
 GET v2/{tenant_id}/servers/{server_id}/os-security-groups
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "security_groups": [
                               {
@@ -5782,6 +6023,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-security-groups
                               ]
                               }
                            
+EOT
     
 
 --
@@ -5797,10 +6039,12 @@ This extension retrieves and resets the encrypted admin password set through met
 GET v2/servers/{server_id}/os-server-password
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "password": "xlozO3wLCBRWAa2yDjCCVx8vwNPypxnypmRYDa/zErlQ+EzPe1S/Gz6nfmC52mOlOSCRuUOmG7kqqgejPof6M7bOezS387zjq4LSvvwp28zUknzy4YzfFGhnHAdai3TxUJ26pfQCYrq8UTzmKF2Bq8ioSEtVVzM0A96pDh8W2i7BOz6MdoiVyiev/I1K2LsuipfxSJR7Wdke4zNXJjHHP2RfYsVbZ/k9ANu+Nz4iIH8/7Cacud/pphH7EjrY6a4RZNrjQskrhKYed0YERpotyjYk1eDtRe72GrSiXteqCM4biaQ5w3ruS+AcX//PXk3uJ5kC7d67fPXaVz4WaQRYMg=="
                               }
                            
+EOT
            
 
     
@@ -5809,6 +6053,7 @@ POST v2/servers/{server_id}/os-server-password
 > Accept: application/json{ "server" : { "name" : "new-server-test", "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef" : "http://openstack.example.com/openstack/flavors/1", "metadata" : { "My Server Name" : "Apache1" }, "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "server": {
                               "adminPass": "78AtBtuxTqZV",
@@ -5826,6 +6071,7 @@ POST v2/servers/{server_id}/os-server-password
                               }
                               }
                            
+EOT
     
 
 --
@@ -5870,6 +6116,7 @@ Lists, enables, and disables Nova services in all hosts.
 GET v2/{tenant_id}/os-services
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "services": [
                               {
@@ -5908,6 +6155,7 @@ GET v2/{tenant_id}/os-services
                               }
                               
                            
+EOT
            
 
     
@@ -5916,6 +6164,7 @@ PUT v2/{tenant_id}/os-services/enable
 > Accept: application/json{ "host":"host1", "binary":"nova_compute" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "host":"host1",
                               "binary":"nova-compute",
@@ -5923,6 +6172,7 @@ PUT v2/{tenant_id}/os-services/enable
                               }
                               
                            
+EOT
            
 
     
@@ -5931,6 +6181,7 @@ PUT v2/{tenant_id}/os-services/disable
 > Accept: application/json{ "host": "host1", "binary": "nova-compute" }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "service":{
                               "host":"host1",
@@ -5939,6 +6190,7 @@ PUT v2/{tenant_id}/os-services/disable
                               }
                               }
                            
+EOT
     
 
 --
@@ -5956,6 +6208,7 @@ GET v2/{tenant_id}/os-simple-tenant-usage
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "tenant_usages": [
                               {
@@ -5970,6 +6223,7 @@ GET v2/{tenant_id}/os-simple-tenant-usage
                               ]
                               }
                            
+EOT
            
 
     
@@ -5978,6 +6232,7 @@ GET v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "tenant_usage": {
                               "server_usages": [
@@ -6006,6 +6261,7 @@ GET v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
                               }
                               }
                            
+EOT
     
 
 --
@@ -6021,6 +6277,7 @@ Extends limits to show the usage of per project limits. Shows information such a
 GET v2/{tenant_id}/limits
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "limits": {
                               "rate": [
@@ -6090,6 +6347,7 @@ GET v2/{tenant_id}/limits
                               }
                               
                            
+EOT
     
 
 --
@@ -6105,6 +6363,7 @@ Lists the virtual interfaces for a specified server instance.
 POST v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "virtual_interfaces": [
                               {
@@ -6114,6 +6373,7 @@ POST v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
                               ]
                               }
                            
+EOT
     
 
 --
@@ -6133,6 +6393,7 @@ POST v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 > Accept: application/json{ 'volumeAttachment': { 'volumeId': volume_id, 'device': device } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "volumeAttachment": {
                               "device": "/dev/vdd",
@@ -6143,6 +6404,7 @@ POST v2/{tenant_id}/servers/{server_id}/os-volume_attachments
                               }
                               
                            
+EOT
     
 ### List Volume Attachments
            
@@ -6153,6 +6415,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 > Accept: application/json
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "volumeAttachments": [
                               {
@@ -6170,6 +6433,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments
                               }
                               
                            
+EOT
     
 ### Get Volume Attachment Details
            
@@ -6180,6 +6444,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 > Accept: application/json
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                               "volumeAttachment": {
                               "device": "/dev/vdd",
@@ -6190,6 +6455,7 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
                               }
                               
                            
+EOT
     
 ### Delete Volume Attachment
            
@@ -6219,6 +6485,7 @@ Manages volumes and snapshots for use with the Compute API.
 GET v1.1/{tenant_id}/os-volumes
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "volumes": [
                               {
@@ -6249,6 +6516,7 @@ GET v1.1/{tenant_id}/os-volumes
                               }
                               
                            
+EOT
     
 ### List Volumes (Detailed)
            
@@ -6257,6 +6525,7 @@ GET v1.1/{tenant_id}/os-volumes
 GET v1.1/{tenant_id}/os-volumes/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "volumes": [
                               {
@@ -6287,6 +6556,7 @@ GET v1.1/{tenant_id}/os-volumes/detail
                               }
                               
                            
+EOT
     
 ### Create Volume
            
@@ -6297,6 +6567,7 @@ POST v1.1/{tenant_id}/os-volumes/{volume_id}
 > Accept: application/json{ "volume": { "display_name": "vol-001", "display_description": "Another volume.", "size": 30, "volume_type": "289da7f8-6440-407c-9fb4-7db01ec49164", "metadata": {"contents": "junk"}, "availability_zone": "us-east1" } }
 < 201
 < Content-Type: application/json
+<<<EOT
 {
                               "volume": {
                               "id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
@@ -6313,6 +6584,7 @@ POST v1.1/{tenant_id}/os-volumes/{volume_id}
                               }
                               
                            
+EOT
     
 ### Show Volume
            
@@ -6321,6 +6593,7 @@ POST v1.1/{tenant_id}/os-volumes/{volume_id}
 GET v1.1/{tenant_id}/os-volumes/{volume_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "volume": {
                               "id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
@@ -6337,6 +6610,7 @@ GET v1.1/{tenant_id}/os-volumes/{volume_id}
                               }
                               
                            
+EOT
     
 ### Delete Volume
            
@@ -6345,12 +6619,14 @@ GET v1.1/{tenant_id}/os-volumes/{volume_id}
 DELETE v1.1/{tenant_id}/os-volumes/{volume_id}
 < 202
 < Content-Type: application/json
+<<<EOT
 HTTP/1.1 202 Accepted
                               Content-Type: text/html; charset=UTF-8
                               Content-Length: 0
                               Date: Fri, 02 Dec 2011 00:39:32 GMT
                               
                            
+EOT
     
 ### List Volume Types
            
@@ -6359,6 +6635,7 @@ HTTP/1.1 202 Accepted
 GET v1.1/{tenant_id}/os-volume-types
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "volume_types": [
                               {
@@ -6375,6 +6652,7 @@ GET v1.1/{tenant_id}/os-volume-types
                               }
                               
                            
+EOT
     
 ### Show Volume Type
            
@@ -6383,6 +6661,7 @@ GET v1.1/{tenant_id}/os-volume-types
 GET v1.1/{tenant_id}/os-volume-types/{volume_type_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "volume_type": {
                               "id": "289da7f8-6440-407c-9fb4-7db01ec49164",
@@ -6392,6 +6671,7 @@ GET v1.1/{tenant_id}/os-volume-types/{volume_type_id}
                               }
                               
                            
+EOT
     
 ### Create Snapshot
            
@@ -6402,6 +6682,7 @@ POST v1.1/{tenant_id}/os-snapshots
 > Accept: application/json{ "snapshot": { "display_name": "snap-001", "display_description": "Daily backup", "volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c", "force": true } }
 < 201
 < Content-Type: application/json
+<<<EOT
 {
                               "snapshot": {
                               "id": "3fbbcccf-d058-4502-8844-6feeffdf4cb5",
@@ -6415,6 +6696,7 @@ POST v1.1/{tenant_id}/os-snapshots
                               }
                               
                            
+EOT
     
 ### List Snapshots
            
@@ -6423,6 +6705,7 @@ POST v1.1/{tenant_id}/os-snapshots
 GET v1.1/{tenant_id}/os-snapshots
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "snapshots": [
                               {
@@ -6447,6 +6730,7 @@ GET v1.1/{tenant_id}/os-snapshots
                               }
                               
                            
+EOT
     
 ### List Snapshots (Detailed)
            
@@ -6455,6 +6739,7 @@ GET v1.1/{tenant_id}/os-snapshots
 GET v1.1/{tenant_id}/os-snapshots/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "snapshots": [
                               {
@@ -6479,6 +6764,7 @@ GET v1.1/{tenant_id}/os-snapshots/detail
                               }
                               
                            
+EOT
     
 ### Show Snapshot
            
@@ -6487,6 +6773,7 @@ GET v1.1/{tenant_id}/os-snapshots/detail
 GET v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                               "snapshot": {
                               "id": "3fbbcccf-d058-4502-8844-6feeffdf4cb5",
@@ -6500,6 +6787,7 @@ GET v1.1/{tenant_id}/os-snapshots/{snapshot_id}
                               }
                               
                            
+EOT
     
 ### Delete Snapshot
            
@@ -6508,12 +6796,14 @@ GET v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 DELETE v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 < 202
 < Content-Type: application/json
+<<<EOT
 HTTP/1.1 202 Accepted
                               Content-Type: text/html; charset=UTF-8
                               Content-Length: 0
                               Date: Mon, 05 Dec 2011 16:23:10 GMT
                               
                            
+EOT
     
 
 --
@@ -6533,6 +6823,7 @@ GET v1/images
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 {'images': [
                            {'uri': 'http://glance.example.com/images/71c675ab-d94f-49cd-a114-e12490b328d9',
                            'name': 'Ubuntu 10.04 Plain',
@@ -6541,6 +6832,7 @@ GET v1/images
                            'size': '5368709120'}
                            ...]}
                         
+EOT
     
 ### create Image
            
@@ -6573,6 +6865,7 @@ GET v1/images/detail
 GET v1/images/{image_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {'images': [
                            {'uri': 'http://glance.example.com/images/71c675ab-d94f-49cd-a114-e12490b328d9',
                            'name': 'Ubuntu 10.04 Plain 5GB',
@@ -6591,6 +6884,7 @@ GET v1/images/{image_id}
                            'properties': {'distro': 'Ubuntu 10.04 LTS'}},
                            ...]}
                         
+EOT
     
 ### update Image
            
@@ -6678,6 +6972,7 @@ POST v2/{tenant_id}/volumes
 > Accept: application/json{ "volume": { "name": "vol-001", "description": "Another volume.", "size": 30, "volume_type": "289da7f8-6440-407c-9fb4-7db01ec49164", "availability_zone": "us-east1", "metadata": {"contents": "junk"} } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                            "volume": {
                            "id": "6996b558-d633-4635-8116-adf14009fcc3",
@@ -6695,6 +6990,7 @@ POST v2/{tenant_id}/volumes
                            }
                            }
                         
+EOT
     
 ### List Volumes
            
@@ -6703,6 +6999,7 @@ POST v2/{tenant_id}/volumes
 GET v2/{tenant_id}/volumes
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volumes": [
                            {
@@ -6736,6 +7033,7 @@ GET v2/{tenant_id}/volumes
                            ]
                            }
                         
+EOT
     
 ### List Volumes (Detailed)
            
@@ -6744,6 +7042,7 @@ GET v2/{tenant_id}/volumes
 GET v2/{tenant_id}/volumes/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volumes":[
                            {
@@ -6809,6 +7108,7 @@ GET v2/{tenant_id}/volumes/detail
                            ]
                            }
                         
+EOT
     
 ### Show Volume Information
            
@@ -6817,6 +7117,7 @@ GET v2/{tenant_id}/volumes/detail
 GET v2/{tenant_id}/volumes/{volume_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volume":{
                            "status":"available",
@@ -6850,6 +7151,7 @@ GET v2/{tenant_id}/volumes/{volume_id}
                            }
                            }
                         
+EOT
     
 ### Update Volume
            
@@ -6860,6 +7162,7 @@ PUT v2/{tenant_id}/volumes/{volume_id}
 > Accept: application/json{ "volume":{ "name":"vol-003", "description":"This is yet, another volume." } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volume":{
                            "status":"available",
@@ -6891,6 +7194,7 @@ PUT v2/{tenant_id}/volumes/{volume_id}
                            }
                            }
                         
+EOT
     
 ### Delete Volume
            
@@ -6909,6 +7213,7 @@ DELETE v2/{tenant_id}/volumes/{volume_id}
 GET v2/{tenant_id}/types
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volume_types": [
                            {
@@ -6924,6 +7229,7 @@ GET v2/{tenant_id}/types
                            ]
                            }
                         
+EOT
     
 ### Show Volume Type Information
            
@@ -6932,6 +7238,7 @@ GET v2/{tenant_id}/types
 GET v2/{tenant_id}/types/{volume_type_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "volume_type":{
                            "id":"6685584b-1eac-4da6-b5c3-555430cf68ff",
@@ -6942,6 +7249,7 @@ GET v2/{tenant_id}/types/{volume_type_id}
                            }
                            }
                         
+EOT
     
 ### Create Snapshot
            
@@ -6952,6 +7260,7 @@ POST v2/{tenant_id}/snapshots
 > Accept: application/json{ "snapshot": { "name": "snap-001", "description": "Daily backup", "volume_id": "5aa119a8-d25b-45a7-8d1b-88e127885635", "force": true } }
 < 202
 < Content-Type: application/json
+<<<EOT
 {
                            "snapshot": {
                            "status": "creating",
@@ -6965,6 +7274,7 @@ POST v2/{tenant_id}/snapshots
                            }
                            }
                         
+EOT
     
 ### List Snapshots
            
@@ -6973,6 +7283,7 @@ POST v2/{tenant_id}/snapshots
 GET v2/{tenant_id}/snapshots
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "snapshots": [
                            {
@@ -6998,6 +7309,7 @@ GET v2/{tenant_id}/snapshots
                            ]
                            }
                         
+EOT
     
 ### List Snapshots (Detailed)
            
@@ -7006,6 +7318,7 @@ GET v2/{tenant_id}/snapshots
 GET v2/{tenant_id}/snapshots/detail
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "snapshots": [
                            {
@@ -7035,6 +7348,7 @@ GET v2/{tenant_id}/snapshots/detail
                            ]
                            }
                         
+EOT
     
 ### Show Snapshot
            
@@ -7043,6 +7357,7 @@ GET v2/{tenant_id}/snapshots/detail
 GET v2/{tenant_id}/snapshots/{snapshot_id}
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "snapshot": {
                            "status": "available",
@@ -7058,6 +7373,7 @@ GET v2/{tenant_id}/snapshots/{snapshot_id}
                            }
                            }
                         
+EOT
     
 ### Update Snapshot
            
@@ -7068,6 +7384,7 @@ PUT v2/{tenant_id}/snapshots/{snapshot_id}
 > Accept: application/json{ "snapshot": { "name": "snap-002", "description": "This is yet, another snapshot.", } }
 < 200
 < Content-Type: application/json
+<<<EOT
 {
                            "snapshot": {
                            "created_at": "2013-02-20T08:11:34.000000",
@@ -7081,6 +7398,7 @@ PUT v2/{tenant_id}/snapshots/{snapshot_id}
                            }
                            
                         
+EOT
     
 ### Delete Snapshot
            
@@ -7110,12 +7428,14 @@ GET v1/{account}
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 [
                            {"name":"test_container_1", "count":2, "bytes":78},
                            {"name":"test_container_2", "count":1, "bytes":17}
                            ] 
                            
                         
+EOT
     
 ### Retrieve Account Metadata
            
@@ -7150,6 +7470,7 @@ GET v1/{account}/{container}
 > Accept: application/json
 < 200
 < Content-Type: application/json
+<<<EOT
 [
                            {"name":"test_obj_1",
                            "hash":"4281c348eaf83e70ddce0e07221c3d28",
@@ -7164,6 +7485,7 @@ GET v1/{account}/{container}
                            ]
                            
                         
+EOT
     
 ### Create Container
            
