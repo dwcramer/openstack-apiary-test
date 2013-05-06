@@ -33,7 +33,7 @@ Returns a token when credentials are supplied. A payload of credentials must be 
            
 
     
-POST v2.0/tokens
+POST /v2.0/tokens
 > Content-Type: application/json
 > Accept: application/json{ "auth":{ "passwordCredentials":{ "username":"test_user", "password":"mypass" }, "tenantName":"customer-x" } }
 < 200
@@ -51,7 +51,7 @@ Returns a list of tenants.
            
 
     
-GET v2.0/tenants
+GET /v2.0/tenants
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -80,7 +80,7 @@ Returns detailed information about this specific version of the API.
            
 
     
-GET v2
+GET /v2
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -110,7 +110,7 @@ Lists all available extensions.
            
 
     
-GET v2/{tenant_id}/extensions
+GET /v2/{tenant_id}/extensions
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -562,7 +562,7 @@ EOT
            
 
     
-GET v2/{tenant_id}/extensions/{alias}
+GET /v2/{tenant_id}/extensions/{alias}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -587,7 +587,7 @@ Returns current limits for the account.
            
 
     
-GET v2/{tenant_id}/limits
+GET /v2/{tenant_id}/limits
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -687,7 +687,7 @@ Lists IDs, names, and links for all servers.
            
 
     
-GET v2/{tenant_id}/servers
+GET /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -722,7 +722,7 @@ Creates a server.
            
 
     
-POST v2/{tenant_id}/servers
+POST /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
 < 202
@@ -755,7 +755,7 @@ Lists details for all servers.
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -828,7 +828,7 @@ Shows information for a specified server.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}
+GET /v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -897,7 +897,7 @@ Updates the name and/or administrative password for the specified server.
            
 
     
-PUT v2/{tenant_id}/servers/{server_id}
+PUT /v2/{tenant_id}/servers/{server_id}
 > Content-Type: application/json
 > Accept: application/json{ "changePassword" : { "adminPass" : "foo" } }
 < 200
@@ -915,7 +915,7 @@ Deletes the specified server.
            
 
     
-DELETE v2/{tenant_id}/servers/{server_id}
+DELETE /v2/{tenant_id}/servers/{server_id}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -935,7 +935,7 @@ An overLimit ( 413) fault may be thrown if the maximum number of metadata items 
            
 
     
-PUT v2/{tenant_id}/servers/{server_id}/metadata
+PUT /v2/{tenant_id}/servers/{server_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "meta" : { "foo" : "Bar Value" } }
 < 200
@@ -957,7 +957,7 @@ Updates resource metadata. Updates will replace existing metadata items with the
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/metadata
+POST /v2/{tenant_id}/servers/{server_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "kernel_id": "False", "Label": "UpdatedImage" } }
 < 200
@@ -983,7 +983,7 @@ Lists metadata associated with the resource.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/metadata
+GET /v2/{tenant_id}/servers/{server_id}/metadata
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -1006,7 +1006,7 @@ Retrieves a single metadata item by key.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
+GET /v2/{tenant_id}/servers/{server_id}/metadata/{key}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -1029,7 +1029,7 @@ Sets a metadata item by its key. An overLimit ( 413) fault may be thrown if the 
            
 
     
-PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
+PUT /v2/{tenant_id}/servers/{server_id}/metadata/{key}
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "auto_disk_config": "True", "Label": "Changed" } }
 < 200
@@ -1052,7 +1052,7 @@ Deletes a metadata item.
            
 
     
-DELETE v2/{tenant_id}/servers/{server_id}/metadata/{key}
+DELETE /v2/{tenant_id}/servers/{server_id}/metadata/{key}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -1068,7 +1068,7 @@ Changes the password for a server. Specify the changePassword action in the requ
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "changePassword" : { "adminPass" : "foo" } }
 < 202
@@ -1086,7 +1086,7 @@ Reboots the specified server. Specify the reboot action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "reboot" : { "type" : "SOFT" } }
 < 202
@@ -1104,7 +1104,7 @@ Rebuilds the specified server. Specify the rebuild action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "rebuild" : { "imageRef" : "http://openstack.example.com/v2/32278/images/70a599e0-31e7-49b7-b260-868f441e862b", "name" : "foobar", "adminPass" : "seekr3t", "accessIPv4" : "1.2.3.4", "accessIPv6" : "fe80::100", "metadata" : { "meta var" : "meta val" }, "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBp dCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5k IGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVs c2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4g QnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRo ZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlv dSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vy c2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6 b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
@@ -1176,7 +1176,7 @@ Resizes the specified server. Specify the resize action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "resize" : { "flavorRef" : "2" } }
 < 202
@@ -1194,7 +1194,7 @@ Confirms a pending resize action. Specify the confirmResize action in the reques
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "confirmResize" : null }
 < 204
@@ -1212,7 +1212,7 @@ Cancels and reverts a pending resize action. Specify the revertResize action in 
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "revertResize" : null }
 < 202
@@ -1230,7 +1230,7 @@ Creates a new image. Specify the createImage action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "createImage" : { "name" : "foo-image", "metadata": { "myvar": "foobar" } } }
 < 202
@@ -1248,7 +1248,7 @@ Lists all server addresses.
            
 
     
-GET v2/{tenant_id}/servers/ips
+GET /v2/{tenant_id}/servers/ips
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -1298,7 +1298,7 @@ Lists addresses by network ID.
            
 
     
-GET v2/{tenant_id}/servers/ips/{network_id}
+GET /v2/{tenant_id}/servers/ips/{network_id}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -1327,7 +1327,7 @@ Lists IDs, names, and links for available images.
            
 
     
-GET v2/{tenant_id}/images
+GET /v2/{tenant_id}/images
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -1477,7 +1477,7 @@ EOT
            
 
     
-GET v2/{tenant_id}/images/detail
+GET /v2/{tenant_id}/images/detail
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -1706,7 +1706,7 @@ Lists details of the specified image.
            
 
     
-GET v2/{tenant_id}/images/{image_id}
+GET /v2/{tenant_id}/images/{image_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -1754,7 +1754,7 @@ Deletes the specified image.
            
 
     
-DELETE v2/{tenant_id}/images/{image_id}
+DELETE /v2/{tenant_id}/images/{image_id}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -1774,7 +1774,7 @@ An overLimit ( 413) fault may be thrown if the maximum number of metadata items 
            
 
     
-PUT v2/{tenant_id}/images/{image_id}/metadata
+PUT /v2/{tenant_id}/images/{image_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "meta" : { "foo" : "Bar Value" } }
 < 200
@@ -1796,7 +1796,7 @@ Updates resource metadata. Updates will replace existing metadata items with the
            
 
     
-POST v2/{tenant_id}/images/{image_id}/metadata
+POST /v2/{tenant_id}/images/{image_id}/metadata
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "kernel_id": "False", "Label": "UpdatedImage" } }
 < 200
@@ -1822,7 +1822,7 @@ Lists metadata associated with the resource.
            
 
     
-GET v2/{tenant_id}/images/{image_id}/metadata
+GET /v2/{tenant_id}/images/{image_id}/metadata
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -1845,7 +1845,7 @@ Retrieves a single metadata item by key.
            
 
     
-GET v2/{tenant_id}/images/{image_id}/metadata/{key}
+GET /v2/{tenant_id}/images/{image_id}/metadata/{key}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -1868,7 +1868,7 @@ Sets a metadata item by its key. An overLimit ( 413) fault may be thrown if the 
            
 
     
-PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
+PUT /v2/{tenant_id}/images/{image_id}/metadata/{key}
 > Content-Type: application/json
 > Accept: application/json{ "metadata": { "auto_disk_config": "True", "Label": "Changed" } }
 < 200
@@ -1891,7 +1891,7 @@ Deletes a metadata item.
            
 
     
-DELETE v2/{tenant_id}/images/{image_id}/metadata/{key}
+DELETE /v2/{tenant_id}/images/{image_id}/metadata/{key}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -1907,7 +1907,7 @@ Lists IDs, names, and links for available flavors.
            
 
     
-GET v2/{tenant_id}/flavors
+GET /v2/{tenant_id}/flavors
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -1998,7 +1998,7 @@ Lists all details for available flavors.
            
 
     
-GET v2/{tenant_id}/flavors/detail
+GET /v2/{tenant_id}/flavors/detail
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -2089,7 +2089,7 @@ Lists details for the specified flavor.
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}
+GET /v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -2143,7 +2143,7 @@ Pauses a server and changes its status to PAUSED. Specify the pause action in th
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "pause": null }
 < 202
@@ -2159,7 +2159,7 @@ Unpauses a PAUSED server and changes its status to ACTIVE. Specify the unpause a
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "unpause": null }
 < 202
@@ -2175,7 +2175,7 @@ Suspends a server and changes its status to SUSPENDED. Specify the suspend actio
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "suspend": null }
 < 202
@@ -2191,7 +2191,7 @@ Resumes a SUSPENDED server and changes its status to ACTIVE. Specify the resume 
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "resume": null }
 < 202
@@ -2207,7 +2207,7 @@ Migrates a server to a host. The scheduler chooses the host. Specify the migrate
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "migrate": null }
 < 202
@@ -2223,7 +2223,7 @@ Resets networking on a server. Specify the resetNetwork action in the request bo
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "resetNetwork": null }
 < 202
@@ -2239,7 +2239,7 @@ Injects network information into a server. Specify the injectNetworkInfo action 
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "injectNetworkInfo": null }
 < 202
@@ -2255,7 +2255,7 @@ Locks a server. Specify the lock action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "lock": null }
 < 202
@@ -2271,7 +2271,7 @@ Unlocks a server. Specify the unlock action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "unlock": null }
 < 202
@@ -2287,7 +2287,7 @@ Backs up a server instance. Specify the createBackup action in the request body.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "createBackup": { "name": "Backup 1", "backup_type": "daily", "rotation": 1 } }
 < 202
@@ -2303,7 +2303,7 @@ Live-migrates a server to a new host without rebooting. Specify the os-migrateLi
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-migrateLive": { "host": "0443e9a1254044d8b99f35eace132080", "block_migration": false, "disk_over_commit": false } }
 < 202
@@ -2319,7 +2319,7 @@ Resets the state of a server to a specified state. Specify the os-resetState act
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-resetState": { "state": "active" } }
 < 202
@@ -2335,7 +2335,7 @@ Evacuates a server from failed host. Specify the evacuate action in the request 
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "evacuate": { "host": "TargetHost", "adminPass": "MySecretPass", "onSharedStorage": "True" } }
 < 200
@@ -2367,7 +2367,7 @@ Lists all agent builds.
            
 
     
-GET v2/{tenant_id}/os-agents
+GET /v2/{tenant_id}/os-agents
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -2395,7 +2395,7 @@ Creates an agent build.
            
 
     
-POST v2/{tenant_id}/os-agents
+POST /v2/{tenant_id}/os-agents
 > Content-Type: application/json
 > Accept: application/json{ "agent": { "hypervisor": "xen", "os": "os", "architecture": "x86", "version": "8.0", "md5hash": "add6bb58e139be103324d04d82d8f545", "url": "xxxxxxxxxxxx" } }
 < 200
@@ -2423,7 +2423,7 @@ Deletes an existing agent build.
            
 
     
-DELETE v2/{tenant_id}/os-agents
+DELETE /v2/{tenant_id}/os-agents
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -2439,7 +2439,7 @@ Updates an agent build.
            
 
     
-PUT v2/{tenant_id}/os-agents/{id}
+PUT /v2/{tenant_id}/os-agents/{id}
 > Content-Type: application/json
 > Accept: application/json{ "para": { "url": "xxx://xxxx/xxx/xxx", "md5hash": "add6bb58e139be103324d04d82d8f545", "version": "7.0" } }
 < 200
@@ -2473,7 +2473,7 @@ Lists all aggregates.
            
 
     
-GET v2/{tenant_id}/os-aggregates
+GET /v2/{tenant_id}/os-aggregates
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -2503,7 +2503,7 @@ Creates an aggregate.
            
 
     
-POST v2/{tenant_id}/os-aggregates
+POST /v2/{tenant_id}/os-aggregates
 > Content-Type: application/json
 > Accept: application/json{ "aggregate": { "name": "name", "availability_zone": "nova" } }
 < 200
@@ -2519,7 +2519,7 @@ Deletes an aggregate.
            
 
     
-DELETE v2/{tenant_id}/os-aggregates/{aggregate_id}
+DELETE /v2/{tenant_id}/os-aggregates/{aggregate_id}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -2535,7 +2535,7 @@ Gets details about a specified aggregate.
            
 
     
-GET v2/{tenant_id}/os-aggregates/{aggregate_id}
+GET /v2/{tenant_id}/os-aggregates/{aggregate_id}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -2566,7 +2566,7 @@ Updates the name, and optionally the availability zone, for a specified aggregat
            
 
     
-PUT v2/{tenant_id}/os-aggregates/{aggregate_id}
+PUT /v2/{tenant_id}/os-aggregates/{aggregate_id}
 > Content-Type: application/json
 > Accept: application/json{ "aggregate": { "name": "newname", "availability_zone": "nova2" } }
 < 200
@@ -2596,7 +2596,7 @@ Sets metadata for an aggregate.
            
 
     
-POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
+POST /v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "set_metadata": { "metadata": { "key": "value" } } }
 < 200
@@ -2627,7 +2627,7 @@ Adds a host to an aggregate.
            
 
     
-POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
+POST /v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "add_host": { "host": "581d29b9e3504d8a895caddb13839b15" } }
 < 200
@@ -2659,7 +2659,7 @@ Removes a host from an aggregate.
            
 
     
-POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
+POST /v2/{tenant_id}/os-aggregates/{aggregate_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "remove_host": { "host": "581d29b9e3504d8a895caddb13839b15" } }
 < 200
@@ -2700,7 +2700,7 @@ Lists cloudpipes.
            
 
     
-GET v2/{tenant_id}/os-cloudpipe
+GET /v2/{tenant_id}/os-cloudpipe
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -2726,7 +2726,7 @@ Creates a cloudpipe.
            
 
     
-POST v2/{tenant_id}/os-cloudpipe
+POST /v2/{tenant_id}/os-cloudpipe
 > Content-Type: application/json
 > Accept: application/json{ "cloudpipe": { "project_id": "cloudpipe-059f21e3-c20e-4efc-9e7a-eba2ab3c6f9a" } }
 < 200
@@ -2744,7 +2744,7 @@ Updates the virtual private network (VPN) IP address and port for a specified cl
            
 
     
-POST v2/{tenant_id}/os-cloudpipe/configure-project
+POST /v2/{tenant_id}/os-cloudpipe/configure-project
 > Content-Type: application/json
 > Accept: application/json{ "configure_project": { "vpn_ip": "192.168.1.1", "vpn_port": "2000" } }
 < 202
@@ -2773,7 +2773,7 @@ Gets console output.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-getConsoleOutput": { "length": 50 } }
 < 200
@@ -2802,7 +2802,7 @@ Gets a console.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-getVNCConsole":{ "type":"novnc" } }
 < 200
@@ -2835,7 +2835,7 @@ Creates a server with the config_drive extended attribute.
            
 
     
-POST v2/{tenant_id}/servers
+POST /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server": { "flavorRef": "http://openstack.example.com/openstack/flavors/1", "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "metadata": { "My Server Name": "Apache1" }, "name": "new-server-test", "personality": [ { "contents": "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==", "path": "/etc/banner.txt" } ] } }
 < 202
@@ -2866,7 +2866,7 @@ Shows information for a specified server, including the config_drive extended at
            
 
     
-GET v2/{tenant_id}/servers/{server_id}
+GET /v2/{tenant_id}/servers/{server_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -2933,7 +2933,7 @@ Lists details for all servers, including the config_drive extended attribute.
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -2975,7 +2975,7 @@ Force-deletes a server.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "forceDelete": null }
 < 202
@@ -2991,7 +2991,7 @@ Reverses the deletion of a server.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "restore": null }
 < 202
@@ -3020,7 +3020,7 @@ Gets basic usage data for a specified server.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/diagnostics
+GET /v2/{tenant_id}/servers/{server_id}/diagnostics
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3063,7 +3063,7 @@ Creates a server.
            
 
     
-POST v2/{tenant_id}/servers
+POST /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server":{ "name":"new-server-test", "imageRef":"http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef":"http://openstack.example.com/openstack/flavors/1", "metadata":{ "My Server Name":"Apache1" }, "personality":[ { "path":"/etc/banner.txt", "contents":"ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBp dCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5k IGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVs c2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4g QnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRo ZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlv dSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vy c2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6 b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
@@ -3095,7 +3095,7 @@ Shows information for a specified server.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}
+GET /v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3165,7 +3165,7 @@ Updates a specified server.
            
 
     
-PUT v2/{tenant_id}/servers/{server_id}
+PUT /v2/{tenant_id}/servers/{server_id}
 > Content-Type: application/json
 > Accept: application/json{ "server": { "OS-DCF:diskConfig": "AUTO" } }
 < 200
@@ -3235,7 +3235,7 @@ Resizes a server.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "resize": { "flavorRef": "3", "OS-DCF:diskConfig": "AUTO" } }
 < 202
@@ -3251,7 +3251,7 @@ Rebuilds a specified server.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "rebuild": { "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "OS-DCF:diskConfig": "AUTO" } }
 < 202
@@ -3322,7 +3322,7 @@ Lists servers.
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3394,7 +3394,7 @@ Describes a specific image.
            
 
     
-GET v2/{tenant_id}/images/{image_id}
+GET /v2/{tenant_id}/images/{image_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3433,7 +3433,7 @@ Lists images.
            
 
     
-GET v2/{tenant_id}/images/detail
+GET /v2/{tenant_id}/images/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3485,7 +3485,7 @@ Gets the availability zone for the specified instance.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}
+GET /v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3554,7 +3554,7 @@ Lists details for all servers. Includes their current availability zone.
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3636,7 +3636,7 @@ Lists details for available images. Includes the image size.
            
 
     
-GET v2/{tenant_id}/v2/images/detail
+GET /v2/{tenant_id}/v2/images/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3874,7 +3874,7 @@ Gets details for a specified image. Includes the image size.
            
 
     
-GET v2/{tenant_id}/v2/images/{image_id}
+GET /v2/{tenant_id}/v2/images/{image_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -3934,7 +3934,7 @@ Shows the type of IP assigned to a specified server, either fixed or floating.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/action
+GET /v2/{tenant_id}/servers/{server_id}/action
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4004,7 +4004,7 @@ Lists all servers showing their IPs by type, either fixed or floating.
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4087,7 +4087,7 @@ Shows detailed extended server attribute information for all servers.
            
 
     
-GET v2/servers
+GET /v2/servers
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4161,7 +4161,7 @@ Shows extended server attributes for a specified server.
            
 
     
-GET v2/servers/{server_id}
+GET /v2/servers/{server_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4244,7 +4244,7 @@ Shows the extended status attributes - vm_state, power_state, and task_state - i
            
 
     
-GET v2/{tenant_id}/servers/{server_id}
+GET /v2/{tenant_id}/servers/{server_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4385,7 +4385,7 @@ Shows the extended status attributes - vm_state, power_state, and task_state - i
            
 
     
-GET v2/{tenant_id}/servers/detail
+GET /v2/{tenant_id}/servers/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4468,7 +4468,7 @@ Gets data about a specified fixed IP address.
            
 
     
-GET v2/{tenant_id}/os-fixed-ips/{fixed_ip}
+GET /v2/{tenant_id}/os-fixed-ips/{fixed_ip}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4489,7 +4489,7 @@ Reserves a fixed IP.
            
 
     
-POST v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
+POST /v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 > Content-Type: application/json
 > Accept: application/json{ "reserve": "192.168.1.1" }
 < 202
@@ -4505,7 +4505,7 @@ Unreserves a fixed IP.
            
 
     
-POST v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
+POST /v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 > Content-Type: application/json
 > Accept: application/json{ "unreserve": "192.168.1.1" }
 < 202
@@ -4532,7 +4532,7 @@ Lists all flavors. Includes the access type, which is public or private.
            
 
     
-GET v2/{tenant_id}/flavors
+GET /v2/{tenant_id}/flavors
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4639,7 +4639,7 @@ Creates a private flavor.
            
 
     
-POST v2/{tenant_id}/flavors
+POST /v2/{tenant_id}/flavors
 > Content-Type: application/json
 > Accept: application/json{ "flavor": { "name": "test_flavor", "ram": 1024, "vcpus": 2, "disk": 10, "id": "10", "os-flavor-access:is_public": false } }
 < 200
@@ -4674,7 +4674,7 @@ Gets the flavor access type, which is either public or private.
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}
+GET /v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4707,7 +4707,7 @@ Lists tenants with access to the specified private flavor.
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}/os-flavor-access
+GET /v2/{tenant_id}/flavors/{flavor_id}/os-flavor-access
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4729,7 +4729,7 @@ Gives the specified tenant access to the specified private flavor.
            
 
     
-POST v2/{tenant_id}/flavors/{flavor_id}/action
+POST /v2/{tenant_id}/flavors/{flavor_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "addTenantAccess": { "tenant": "admin" } }
 < 200
@@ -4753,7 +4753,7 @@ Revokes access from the specified tenant for the specified private flavor.
            
 
     
-DELETE v2/{tenant_id}/flavors/{flavor_id}/action
+DELETE /v2/{tenant_id}/flavors/{flavor_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "removeTenantAccess": { "tenant": "admin" } }
 < 200
@@ -4782,7 +4782,7 @@ Lists the extra-specs or keys for the specified flavor.
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
+GET /v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4801,7 +4801,7 @@ Creates extra-specs or keys for the specified flavor.
            
 
     
-POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
+POST /v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 > Content-Type: application/json
 > Accept: application/json{ "extra_specs": { "key1": "value1", "key2": "value2" } }
 < 200
@@ -4822,7 +4822,7 @@ Updates the value of the specified extra-spec or key.
            
 
     
-POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
+POST /v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 > Content-Type: application/json
 > Accept: application/json{ "key1": "new_value1" }
 < 200
@@ -4840,7 +4840,7 @@ Gets the value of the specified key.
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs/{key_id}
+GET /v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs/{key_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4867,7 +4867,7 @@ Creates a flavor. Includes the rxtx_factor extended attribute.
            
 
     
-POST v2/{tenant_id}/flavors
+POST /v2/{tenant_id}/flavors
 > Content-Type: application/json
 > Accept: application/json{ "flavor": { "name": "flavortest", "ram": 1024, "vcpus": 2, "disk": 10, "id": "100", "rxtx_factor": 2.0 } }
 < 200
@@ -4902,7 +4902,7 @@ Gets details for a specified flavor. Includes the rxtx_factor extended attribute
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}
+GET /v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -4941,7 +4941,7 @@ Lists details for available flavors. Includes the rxtx_factor extended attribute
            
 
     
-GET v2/{tenant_id}/flavors/detail
+GET /v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5065,7 +5065,7 @@ Creates a flavor. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap 
            
 
     
-POST v2/{tenant_id}/flavors
+POST /v2/{tenant_id}/flavors
 > Content-Type: application/json
 > Accept: application/json{ "flavor": { "name": "flavortest", "ram": 1024, "vcpus": 2, "disk": 10, "id": "666", "rxtx_factor": 2.0, "OS-FLV-EXT-DATA:ephemeral": 30, "swap": 5 } }
 < 200
@@ -5100,7 +5100,7 @@ Gets details for a specified flavor. Includes the rxtx_factor, OS-FLV-EXT-DATA:e
            
 
     
-GET v2/{tenant_id}/flavors/{flavor_id}
+GET /v2/{tenant_id}/flavors/{flavor_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5139,7 +5139,7 @@ Lists details for available flavors. Includes the rxtx_factor, OS-FLV-EXT-DATA:e
            
 
     
-GET v2/{tenant_id}/flavors/detail
+GET /v2/{tenant_id}/flavors/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5263,7 +5263,7 @@ Creates a flavor.
            
 
     
-POST v2/{tenant_id}/flavors
+POST /v2/{tenant_id}/flavors
 > Content-Type: application/json
 > Accept: application/json{ "flavor": { "name": "test_flavor", "ram": 1024, "vcpus": 2, "disk": 10, "id": "10" } }
 < 200
@@ -5297,7 +5297,7 @@ Deletes a flavor.
            
 
     
-DELETE v2/{tenant_id}/flavors/{flavor_id}
+DELETE /v2/{tenant_id}/flavors/{flavor_id}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -5324,7 +5324,7 @@ Lists registered DNS domains published by the DNS drivers.
            
 
     
-GET v2/{tenant_id}/os-floating-ip-dns
+GET /v2/{tenant_id}/os-floating-ip-dns
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5349,7 +5349,7 @@ Creates or updates a DNS domain.
            
 
     
-PUT v2/{tenant_id}/os-floating-ip-dns/{domain}
+PUT /v2/{tenant_id}/os-floating-ip-dns/{domain}
 > Content-Type: application/json
 > Accept: application/json# Sample body, public domain: { 'domain_entry' : { 'scope': 'public', 'project' : 'project1' } } # Sample body, public (projectless) domain: { 'domain_entry' : { 'scope': 'public' } } # Sample body, private domain: { 'domain_entry' : { 'scope': 'private', 'availability_domain': 'zone1' } }
 < 200
@@ -5386,7 +5386,7 @@ Deletes a DNS domain and all associated host entries.
            
 
     
-DELETE v2/{tenant_id}/os-floating-ip-dns/{domain}
+DELETE /v2/{tenant_id}/os-floating-ip-dns/{domain}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5402,7 +5402,7 @@ Creates or updates a DNS entry.
            
 
     
-PUT v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
+PUT /v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 > Content-Type: application/json
 > Accept: application/json{ 'dns_entry' : { 'ip': '192.168.53.11', 'dns_type': 'A' } }
 < 200
@@ -5427,7 +5427,7 @@ Finds a unique DNS entry for a specified domain and name.
            
 
     
-GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
+GET /v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5452,7 +5452,7 @@ Deletes a specified DNS entry.
            
 
     
-DELETE v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
+DELETE /v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5468,7 +5468,7 @@ Finds DNS entries for a specified domain and IP.
            
 
     
-GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
+GET /v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{ip}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5512,7 +5512,7 @@ Lists floating IP pools.
            
 
     
-GET v2/{tenant_id}/os-floating-ip-pools
+GET /v2/{tenant_id}/os-floating-ip-pools
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5548,7 +5548,7 @@ Lists all floating IPs.
            
 
     
-GET v2/{tenant_id}/os-floating-ips-bulk
+GET /v2/{tenant_id}/os-floating-ips-bulk
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5588,7 +5588,7 @@ Bulk-creates floating IPs.
            
 
     
-POST v2/{tenant_id}/os-floating-ips-bulk
+POST /v2/{tenant_id}/os-floating-ips-bulk
 > Content-Type: application/json
 > Accept: application/json{ "floating_ips_bulk_create" : { "ip_range": "192.168.1.0/24", "pool": "nova", "interface": "eth0" } }
 < 200
@@ -5612,7 +5612,7 @@ Bulk-deletes floating IPs.
            
 
     
-POST v2/{tenant_id}/os-floating-ips-bulk/delete
+POST /v2/{tenant_id}/os-floating-ips-bulk/delete
 > Content-Type: application/json
 > Accept: application/json{ "ip_range": "192.168.1.0/24" }
 < 200
@@ -5632,7 +5632,7 @@ Lists all floating IPs for a specified host.
            
 
     
-GET v2/{tenant_id}/os-floating-ips-bulk/{host_name}
+GET /v2/{tenant_id}/os-floating-ips-bulk/{host_name}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5669,7 +5669,7 @@ Lists floating IP addresses associated with the tenant or account.
            
 
     
-GET v2/{tenant_id}/os-floating-ips
+GET /v2/{tenant_id}/os-floating-ips
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5702,7 +5702,7 @@ Allocates a new floating IP address to a tenant or account.
            
 
     
-POST v2/{tenant_id}/os-floating-ips
+POST /v2/{tenant_id}/os-floating-ips
 > Content-Type: application/json
 > Accept: application/json{ "pool": "nova" }
 < 200
@@ -5728,7 +5728,7 @@ Lists details of the floating IP address associated with floating_IP_address_ID.
            
 
     
-GET v2/{tenant_id}/os-floating-ips
+GET /v2/{tenant_id}/os-floating-ips
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5761,7 +5761,7 @@ Deallocates the floating IP address associated with floating_IP_address_ID.
            
 
     
-DELETE v2/{tenant_id}/os-floating-ips
+DELETE /v2/{tenant_id}/os-floating-ips
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -5777,7 +5777,7 @@ Adds a floating IP address to an instance.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "addFloatingIp": { "address": "10.10.10.1" } }
 < 202
@@ -5795,7 +5795,7 @@ Removes a floating IP from an instance.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "removeFloatingIp": { "address": "10.10.10.1" } }
 < 202
@@ -5822,7 +5822,7 @@ Lists all hosts.
            
 
     
-GET v2/{tenant_id}/os-hosts
+GET /v2/{tenant_id}/os-hosts
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5870,7 +5870,7 @@ Shows information for a specified host.
            
 
     
-GET v2/{tenant_id}/os-hosts/{host_name}
+GET /v2/{tenant_id}/os-hosts/{host_name}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5914,7 +5914,7 @@ Enables a host or puts it in maintenance mode.
            
 
     
-PUT v2/{tenant_id}/os-hosts/{host_name}
+PUT /v2/{tenant_id}/os-hosts/{host_name}
 > Content-Type: application/json
 > Accept: application/json{ "status": "enable", "maintenance_mode": "disable" }
 < 200
@@ -5934,7 +5934,7 @@ Shuts down a host.
            
 
     
-GET v2/{tenant_id}/os-hosts/{host_name}/shutdown
+GET /v2/{tenant_id}/os-hosts/{host_name}/shutdown
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5951,7 +5951,7 @@ Reboots a host.
            
 
     
-GET v2/{tenant_id}/os-hosts/{host_name}/reboot
+GET /v2/{tenant_id}/os-hosts/{host_name}/reboot
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -5979,7 +5979,7 @@ Lists hypervisors information for each server obtained through the hypervisor-sp
            
 
     
-GET v2/{tenant_id}/os-hypervisors
+GET /v2/{tenant_id}/os-hypervisors
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -6002,7 +6002,7 @@ Shows detailed hypervisors API information for each server. Typically configured
            
 
     
-GET v2/{tenant_id}/os-hypervisors
+GET /v2/{tenant_id}/os-hypervisors
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -6043,7 +6043,7 @@ Lists available actions for a specified server. Deployers set permissions for th
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/os-instance-actions
+GET /v2/{tenant_id}/servers/{server_id}/os-instance-actions
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6076,7 +6076,7 @@ EOT
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
+GET /v2/{tenant_id}/servers/{server_id}/os-instance-actions/{action_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6127,7 +6127,7 @@ Lists keypairs associated with the account.
            
 
     
-GET v2/{tenant_id}/os-keypairs
+GET /v2/{tenant_id}/os-keypairs
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6152,7 +6152,7 @@ Generates or imports a keypair.
            
 
     
-POST v2/{tenant_id}/os-keypairs
+POST /v2/{tenant_id}/os-keypairs
 > Content-Type: application/json
 > Accept: application/json{ "keypair": { "name": "keypair-dab428fe-6186-4a14-b3de-92131f76cd39", "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDx8nkQv/zgGgB4rMYmIf+6A4l6Rr+o/6lHBQdW5aYd44bd8JttDCE/F/pNRr0lRE+PiqSPO8nDPHw0010JeMH9gYgnnFlyY3/OcJ02RhIPyyxYpv9FhY+2YiUkpwFOcLImyrxEsYXpD/0d3ac30bNH6Sw9JD9UZHYcpSxsIbECHw== Generated by Nova" } }
 < 200
@@ -6176,7 +6176,7 @@ Deletes a keypair.
            
 
     
-DELETE v2/{tenant_id}/os-keypairs/{keypair_name}
+DELETE /v2/{tenant_id}/os-keypairs/{keypair_name}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -6190,7 +6190,7 @@ Shows a keypair associated with the account.
            
 
     
-GET v2/{tenant_id}/os-keypairs/{keypair_name}
+GET /v2/{tenant_id}/os-keypairs/{keypair_name}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6223,7 +6223,7 @@ Creates one or more servers with an optional reservation ID.
            
 
     
-POST v2/{tenant_id}/servers
+POST /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server" : { "name" : "new-server-test", "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef" : "http://openstack.example.com/openstack/flavors/1", "metadata" : { "My Server Name" : "Apache1" }, "min_count": "2", "max_count": "3", "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 202
@@ -6274,7 +6274,7 @@ Creates a network.
            
 
     
-POST v2/{tenant_id}
+POST /v2/{tenant_id}
 > Content-Type: application/json
 > Accept: application/json{ "network": [ { "bridge": "br234", "bridge_itnerface": "eth0", "cidr": "10.70.105.0/24", "label": "net234", "multi_host": "false", "vlan": 234 } ] }
 < 202
@@ -6323,7 +6323,7 @@ Lists all networks that are available to the tenant.
            
 
     
-GET v2/{tenant_id}/os-networks
+GET /v2/{tenant_id}/os-networks
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6370,7 +6370,7 @@ Adds a specified network to a project.
            
 
     
-POST v2/{tenant_id}/os-networks/add
+POST /v2/{tenant_id}/os-networks/add
 > Content-Type: application/json
 > Accept: application/json{ "id": "44b6f3d2-ed5f-4711-b2fa-96e29cf13ac0" }
 < 202
@@ -6388,7 +6388,7 @@ Gets information about a specified network.
            
 
     
-GET v2/{tenant_id}/os-networks/{id}
+GET /v2/{tenant_id}/os-networks/{id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6433,7 +6433,7 @@ Deletes a specified network.
            
 
     
-DELETE v2/{tenant_id}/os-networks/{id}
+DELETE /v2/{tenant_id}/os-networks/{id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -6449,7 +6449,7 @@ Associates a specified network with a host.
            
 
     
-POST v2/{tenant_id}/os-networks/{id}/action
+POST /v2/{tenant_id}/os-networks/{id}/action
 > Content-Type: application/json
 > Accept: application/json{ "associate_host": "testHost" }
 < 202
@@ -6467,7 +6467,7 @@ Disassociates the host from a specified network.
            
 
     
-POST v2/{tenant_id}/os-networks/{id}/action
+POST /v2/{tenant_id}/os-networks/{id}/action
 > Content-Type: application/json
 > Accept: application/json{ "disassociate_host": null }
 < 202
@@ -6485,7 +6485,7 @@ Disassociates a specified network from a project so that the network can be reus
            
 
     
-POST v2/{tenant_id}/os-networks/{id}/action
+POST /v2/{tenant_id}/os-networks/{id}/action
 > Content-Type: application/json
 > Accept: application/json{ "disassociate": null }
 < 202
@@ -6503,7 +6503,7 @@ Disassociates the project from a specified network.
            
 
     
-POST v2/{tenant_id}/os-networks/{id}/action
+POST /v2/{tenant_id}/os-networks/{id}/action
 > Content-Type: application/json
 > Accept: application/json{ "disassociate_project": null }
 < 202
@@ -6530,7 +6530,7 @@ Shows quotas for a tenant.
            
 
     
-GET v2/{tenant_id}/os-quota-sets/{tenant_id}
+GET /v2/{tenant_id}/os-quota-sets/{tenant_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6560,7 +6560,7 @@ Updates quotas for a tenant.
            
 
     
-POST v2/{tenant_id}/os-quota-sets/{tenant_id}
+POST /v2/{tenant_id}/os-quota-sets/{tenant_id}
 > Content-Type: application/json
 > Accept: application/json{ "quota_set": { "security_groups": 45 } }
 < 200
@@ -6591,7 +6591,7 @@ Gets default quotas for a tenant.
            
 
     
-GET v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
+GET /v2/{tenant_id}/os-quota-sets/{tenant_id}/defaults
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6632,7 +6632,7 @@ Puts a server in rescue mode. Changes status to RESCUE.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "rescue": { "adminPass": "MySecretPass" } }
 < 200
@@ -6650,7 +6650,7 @@ Returns a server to its state before being rescued.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "unrescue": null }
 < 202
@@ -6677,7 +6677,7 @@ Creates a server by using scheduler hints.
            
 
     
-POST v2/{tenant_id}/servers
+POST /v2/{tenant_id}/servers
 > Content-Type: application/json
 > Accept: application/json{ "server": { "name": "new-server-test", "imageRef": "70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef": "1" }, "os:scheduler_hints": { "hypervisor": "xen", "near": "2b7c42eb-7736-4a0f-afab-f23969a35ada" } }
 < 200
@@ -6719,7 +6719,7 @@ Lists security groups.
            
 
     
-GET v2/{tenant_id}/os-security-groups
+GET /v2/{tenant_id}/os-security-groups
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6743,7 +6743,7 @@ Creates a security group.
            
 
     
-POST v2/{tenant_id}/os-security-groups
+POST /v2/{tenant_id}/os-security-groups
 > Content-Type: application/json
 > Accept: application/json{ "security_group": { "name": "json-test", "description": "description" } }
 < 200
@@ -6767,7 +6767,7 @@ Gets information for a specified security group.
            
 
     
-GET v2/{tenant_id}/os-security-groups/{security_group_id}
+GET /v2/{tenant_id}/os-security-groups/{security_group_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6789,7 +6789,7 @@ Deletes a specified security group.
            
 
     
-DELETE v2/{tenant_id}/os-security-groups/{security_group_id}
+DELETE /v2/{tenant_id}/os-security-groups/{security_group_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -6803,7 +6803,7 @@ Creates a security group rule.
            
 
     
-POST v2/{tenant_id}/os-security-group-rules
+POST /v2/{tenant_id}/os-security-group-rules
 > Content-Type: application/json
 > Accept: application/json{ "security_group_rule": { "ip_protocol": "tcp", "from_port": "80", "to_port": "8080", "cidr": "0.0.0.0/0", "group_id": "", "parent_group_id": "161" } }
 < 200
@@ -6831,7 +6831,7 @@ Deletes a security group rule.
            
 
     
-DELETE v2/{tenant_id}/os-security-group-rules/{security_group_rule_id}
+DELETE /v2/{tenant_id}/os-security-group-rules/{security_group_rule_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -6845,7 +6845,7 @@ Lists security groups for a specified server.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/os-security-groups
+GET /v2/{tenant_id}/servers/{server_id}/os-security-groups
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6880,7 +6880,7 @@ Gets the administrative password for a specified server.
            
 
     
-GET v2/servers/{server_id}/os-server-password
+GET /v2/servers/{server_id}/os-server-password
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -6896,7 +6896,7 @@ Resets the administrative password for a specified server.
            
 
     
-POST v2/servers/{server_id}/os-server-password
+POST /v2/servers/{server_id}/os-server-password
 > Content-Type: application/json
 > Accept: application/json{ "server" : { "name" : "new-server-test", "imageRef" : "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b", "flavorRef" : "http://openstack.example.com/openstack/flavors/1", "metadata" : { "My Server Name" : "Apache1" }, "personality" : [ { "path" : "/etc/banner.txt", "contents" : "ICAgICAgDQoiQSBjbG91ZCBkb2VzIG5vdCBrbm93IHdoeSBpdCBtb3ZlcyBpbiBqdXN0IHN1Y2ggYSBkaXJlY3Rpb24gYW5kIGF0IHN1Y2ggYSBzcGVlZC4uLkl0IGZlZWxzIGFuIGltcHVsc2lvbi4uLnRoaXMgaXMgdGhlIHBsYWNlIHRvIGdvIG5vdy4gQnV0IHRoZSBza3kga25vd3MgdGhlIHJlYXNvbnMgYW5kIHRoZSBwYXR0ZXJucyBiZWhpbmQgYWxsIGNsb3VkcywgYW5kIHlvdSB3aWxsIGtub3csIHRvbywgd2hlbiB5b3UgbGlmdCB5b3Vyc2VsZiBoaWdoIGVub3VnaCB0byBzZWUgYmV5b25kIGhvcml6b25zLiINCg0KLVJpY2hhcmQgQmFjaA==" } ] } }
 < 200
@@ -6938,7 +6938,7 @@ Halts a running server. Changes status to STOPPED.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-stop" : null }
 < 202
@@ -6954,7 +6954,7 @@ Returns a STOPPED server to ACTIVE status.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/action
+POST /v2/{tenant_id}/servers/{server_id}/action
 > Content-Type: application/json
 > Accept: application/json{ "os-start" : null }
 < 202
@@ -6981,7 +6981,7 @@ Lists all running services.
            
 
     
-GET v2/{tenant_id}/os-services
+GET /v2/{tenant_id}/os-services
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7031,7 +7031,7 @@ Enables scheduling for a service.
            
 
     
-PUT v2/{tenant_id}/os-services/enable
+PUT /v2/{tenant_id}/os-services/enable
 > Content-Type: application/json
 > Accept: application/json{ "host":"host1", "binary":"nova_compute" }
 < 200
@@ -7052,7 +7052,7 @@ Disables scheduling for a service.
            
 
     
-PUT v2/{tenant_id}/os-services/disable
+PUT /v2/{tenant_id}/os-services/disable
 > Content-Type: application/json
 > Accept: application/json{ "host": "host1", "binary": "nova-compute" }
 < 200
@@ -7085,7 +7085,7 @@ Lists usage information for all tenants.
            
 
     
-GET v2/{tenant_id}/os-simple-tenant-usage
+GET /v2/{tenant_id}/os-simple-tenant-usage
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -7113,7 +7113,7 @@ Gets usage information for a tenant.
            
 
     
-GET v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
+GET /v2/{tenant_id}/os-simple-tenant-usage/{tenant_id}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -7166,7 +7166,7 @@ Returns absolute and rate limit information, including information on currently 
            
 
     
-GET v2/{tenant_id}/limits
+GET /v2/{tenant_id}/limits
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7258,7 +7258,7 @@ Lists the virtual interfaces for a specified instance.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
+POST /v2/{tenant_id}/servers/{server_id}/os-virtual-interfaces
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -7292,7 +7292,7 @@ Attaches a volume to the specified server.
            
 
     
-POST v2/{tenant_id}/servers/{server_id}/os-volume_attachments
+POST /v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 > Content-Type: application/json
 > Accept: application/json{ 'volumeAttachment': { 'volumeId': volume_id, 'device': device } }
 < 202
@@ -7318,7 +7318,7 @@ Lists the volume attachments for the specified server.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments
+GET /v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 > Content-Type: application/json
 > Accept: application/json
 < 202
@@ -7351,7 +7351,7 @@ Lists volume details for the specified volume attachment ID.
            
 
     
-GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
+GET /v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 > Content-Type: application/json
 > Accept: application/json
 < 202
@@ -7377,7 +7377,7 @@ Deletes the specified volume attachment from the specified server.
            
 
     
-DELETE v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
+DELETE /v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 > Content-Type: application/json
 > Accept: application/json
 < 202
@@ -7406,7 +7406,7 @@ Lists the volumes associated with the account. The operation does not require a 
            
 
     
-GET v1.1/{tenant_id}/os-volumes
+GET /v1.1/{tenant_id}/os-volumes
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7450,7 +7450,7 @@ Lists details for a specified volume. The operation does not require a request b
            
 
     
-GET v1.1/{tenant_id}/os-volumes/detail
+GET /v1.1/{tenant_id}/os-volumes/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7494,7 +7494,7 @@ Creates a volume. The operation requires a request body.
            
 
     
-POST v1.1/{tenant_id}/os-volumes/{volume_id}
+POST /v1.1/{tenant_id}/os-volumes/{volume_id}
 > Content-Type: application/json
 > Accept: application/json{ "volume": { "display_name": "vol-001", "display_description": "Another volume.", "size": 30, "volume_type": "289da7f8-6440-407c-9fb4-7db01ec49164", "metadata": {"contents": "junk"}, "availability_zone": "us-east1" } }
 < 201
@@ -7526,7 +7526,7 @@ Shows information for a specified volume.
            
 
     
-GET v1.1/{tenant_id}/os-volumes/{volume_id}
+GET /v1.1/{tenant_id}/os-volumes/{volume_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7556,7 +7556,7 @@ Deletes a specified volume.
            
 
     
-DELETE v1.1/{tenant_id}/os-volumes/{volume_id}
+DELETE /v1.1/{tenant_id}/os-volumes/{volume_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -7576,7 +7576,7 @@ Lists volume types.
            
 
     
-GET v1.1/{tenant_id}/os-volume-types
+GET /v1.1/{tenant_id}/os-volume-types
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7606,7 +7606,7 @@ Shows information for a specified volume type.
            
 
     
-GET v1.1/{tenant_id}/os-volume-types/{volume_type_id}
+GET /v1.1/{tenant_id}/os-volume-types/{volume_type_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7629,7 +7629,7 @@ Creates a snapshot.
            
 
     
-POST v1.1/{tenant_id}/os-snapshots
+POST /v1.1/{tenant_id}/os-snapshots
 > Content-Type: application/json
 > Accept: application/json{ "snapshot": { "display_name": "snap-001", "display_description": "Daily backup", "volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c", "force": true } }
 < 201
@@ -7658,7 +7658,7 @@ Lists snapshots.
            
 
     
-GET v1.1/{tenant_id}/os-snapshots
+GET /v1.1/{tenant_id}/os-snapshots
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7696,7 +7696,7 @@ Lists details for a specified snapshot. The operation does not require a request
            
 
     
-GET v1.1/{tenant_id}/os-snapshots/detail
+GET /v1.1/{tenant_id}/os-snapshots/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7734,7 +7734,7 @@ Shows information for a specified snapshot.
            
 
     
-GET v1.1/{tenant_id}/os-snapshots/{snapshot_id}
+GET /v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7765,7 +7765,7 @@ This operation is asynchronous. You must list snapshots repeatedly to determine 
            
 
     
-DELETE v1.1/{tenant_id}/os-snapshots/{snapshot_id}
+DELETE /v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -7796,7 +7796,7 @@ Lists public VM images.
            
 
     
-GET v1/images
+GET /v1/images
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -7820,7 +7820,7 @@ Registers a virtual machine (VM) image.
            
 
     
-POST v1/images
+POST /v1/images
 > Content-Type: application/json
 > Accept: application/json
 < 202
@@ -7838,7 +7838,7 @@ Lists all details for available images.
            
 
     
-GET v1/images/detail
+GET /v1/images/detail
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -7856,7 +7856,7 @@ Shows details for the specified image.
            
 
     
-GET v1/images/{image_id}
+GET /v1/images/{image_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7888,7 +7888,7 @@ Updates an image, uploads an image file, or updates metadata for an image.
            
 
     
-PUT v1/images/{image_id}
+PUT /v1/images/{image_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -7904,7 +7904,7 @@ Deletes the specified image.
            
 
     
-DELETE v1/images/{image_id}
+DELETE /v1/images/{image_id}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -7920,7 +7920,7 @@ Replaces a membership list for an image.
            
 
     
-PUT v1/images/{image_id}/members
+PUT /v1/images/{image_id}/members
 > Content-Type: application/json
 > Accept: application/json
 < 204
@@ -7942,7 +7942,7 @@ If you omit the request body from this call, this request adds the membership to
            
 
     
-PUT v1/images/{image_id}/members/{owner}
+PUT /v1/images/{image_id}/members/{owner}
 > Content-Type: application/json
 > Accept: application/json
 < 204
@@ -7960,7 +7960,7 @@ Removes a member from an image.
            
 
     
-DELETE v1/images/{image_id}/members/{owner}
+DELETE /v1/images/{image_id}/members/{owner}
 > Content-Type: application/json
 > Accept: application/json
 < 204
@@ -7978,7 +7978,7 @@ Lists the VM images shared with a specified owner. The owner ID is the tenant ID
            
 
     
-GET v1/shared-images/{owner}
+GET /v1/shared-images/{owner}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -8007,7 +8007,7 @@ Creates a volume.
            
 
     
-POST v2/{tenant_id}/volumes
+POST /v2/{tenant_id}/volumes
 > Content-Type: application/json
 > Accept: application/json{ "volume": { "name": "vol-001", "description": "Another volume.", "size": 30, "volume_type": "289da7f8-6440-407c-9fb4-7db01ec49164", "availability_zone": "us-east1", "metadata": {"contents": "junk"} } }
 < 202
@@ -8040,7 +8040,7 @@ Lists summary information for all Cinder volumes that are accessible to the tena
            
 
     
-GET v2/{tenant_id}/volumes
+GET /v2/{tenant_id}/volumes
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8087,7 +8087,7 @@ Lists detailed information for all Cinder volumes that are accessible to the ten
            
 
     
-GET v2/{tenant_id}/volumes/detail
+GET /v2/{tenant_id}/volumes/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8166,7 +8166,7 @@ Shows information about a specified volume.
            
 
     
-GET v2/{tenant_id}/volumes/{volume_id}
+GET /v2/{tenant_id}/volumes/{volume_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8213,7 +8213,7 @@ Updates a volume.
            
 
     
-PUT v2/{tenant_id}/volumes/{volume_id}
+PUT /v2/{tenant_id}/volumes/{volume_id}
 > Content-Type: application/json
 > Accept: application/json{ "volume":{ "name":"vol-003", "description":"This is yet, another volume." } }
 < 200
@@ -8260,7 +8260,7 @@ Deletes a specified volume.
            
 
     
-DELETE v2/{tenant_id}/volumes/{volume_id}
+DELETE /v2/{tenant_id}/volumes/{volume_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -8276,7 +8276,7 @@ Lists volume types.
            
 
     
-GET v2/{tenant_id}/types
+GET /v2/{tenant_id}/types
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8305,7 +8305,7 @@ Shows information about a specified volume type.
            
 
     
-GET v2/{tenant_id}/types/{volume_type_id}
+GET /v2/{tenant_id}/types/{volume_type_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8329,7 +8329,7 @@ Creates a snapshot, which is a point-in-time copy of a volume. You can create a 
            
 
     
-POST v2/{tenant_id}/snapshots
+POST /v2/{tenant_id}/snapshots
 > Content-Type: application/json
 > Accept: application/json{ "snapshot": { "name": "snap-001", "description": "Daily backup", "volume_id": "5aa119a8-d25b-45a7-8d1b-88e127885635", "force": true } }
 < 202
@@ -8358,7 +8358,7 @@ Lists summary information for all Cinder snapshots that are accessible to the te
            
 
     
-GET v2/{tenant_id}/snapshots
+GET /v2/{tenant_id}/snapshots
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8397,7 +8397,7 @@ Lists detailed information for all Cinder snapshots that are accessible to the t
            
 
     
-GET v2/{tenant_id}/snapshots/detail
+GET /v2/{tenant_id}/snapshots/detail
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8440,7 +8440,7 @@ Shows information for a specified snapshot.
            
 
     
-GET v2/{tenant_id}/snapshots/{snapshot_id}
+GET /v2/{tenant_id}/snapshots/{snapshot_id}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8469,7 +8469,7 @@ Updates a specified snapshot.
            
 
     
-PUT v2/{tenant_id}/snapshots/{snapshot_id}
+PUT /v2/{tenant_id}/snapshots/{snapshot_id}
 > Content-Type: application/json
 > Accept: application/json{ "snapshot": { "name": "snap-002", "description": "This is yet, another snapshot.", } }
 < 200
@@ -8498,7 +8498,7 @@ Deletes a specified snapshot.
            
 
     
-DELETE v2/{tenant_id}/snapshots/{snapshot_id}
+DELETE /v2/{tenant_id}/snapshots/{snapshot_id}
 < 202
 < Content-Type: application/json
 <<<EOT
@@ -8525,7 +8525,7 @@ Lists storage containers, sorted by name.
            
 
     
-GET v1/{account}
+GET /v1/{account}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -8547,7 +8547,7 @@ Gets container metadata, such as the number of containers and the total bytes st
            
 
     
-HEAD v1/{account}
+HEAD /v1/{account}
 < 204
     
     
@@ -8563,7 +8563,7 @@ Creates or updates account metadata by associating custom metadata headers with 
            
 
     
-POST v1/{account}
+POST /v1/{account}
 > Content-Type: application/json
 > Accept: application/json
 < 204
@@ -8581,7 +8581,7 @@ Lists the objects stored in the container.
            
 
     
-GET v1/{account}/{container}
+GET /v1/{account}/{container}
 > Content-Type: application/json
 > Accept: application/json
 < 200
@@ -8611,7 +8611,7 @@ Creates a container.
            
 
     
-PUT v1/{account}/{container}
+PUT /v1/{account}/{container}
 > Content-Type: application/json
 > Accept: application/json
 < 201
@@ -8629,7 +8629,7 @@ Deletes an empty container.
            
 
     
-DELETE v1/{account}/{container}
+DELETE /v1/{account}/{container}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -8645,7 +8645,7 @@ Gets container metadata, including the number of objects and the total bytes of 
            
 
     
-HEAD v1/{account}/{container}
+HEAD /v1/{account}/{container}
 < 204
     
     
@@ -8661,7 +8661,7 @@ Creates or updates the arbitrary container metadata by associating custom metada
            
 
     
-POST v1/{account}/{container}
+POST /v1/{account}/{container}
 > Content-Type: application/json
 > Accept: application/json
 < 204
@@ -8679,7 +8679,7 @@ Gets data for the specified object.
            
 
     
-GET v1/{account}/{container}/{object}
+GET /v1/{account}/{container}/{object}
 < 200
 < Content-Type: application/json
 <<<EOT
@@ -8695,7 +8695,7 @@ Creates or updates the content and metadata for a specified object.
            
 
     
-PUT v1/{account}/{container}/{object}
+PUT /v1/{account}/{container}/{object}
 > Content-Type: application/json
 > Accept: application/json
 < 201
@@ -8713,7 +8713,7 @@ Permanently deletes an object from the OpenStack Object Storage system. In combi
            
 
     
-DELETE v1/{account}/{container}/{object}
+DELETE /v1/{account}/{container}/{object}
 < 204
 < Content-Type: application/json
 <<<EOT
@@ -8729,7 +8729,7 @@ Copies an object to another object with a new name in the OpenStack Object Stora
            
 
     
-COPY v1/{account}/{container}/{object}
+COPY /v1/{account}/{container}/{object}
 > Content-Type: application/json
 > Accept: application/json
 < 201
@@ -8747,7 +8747,7 @@ Gets object metadata and other standard HTTP headers.
            
 
     
-HEAD v1/{account}/{container}/{object}
+HEAD /v1/{account}/{container}/{object}
 < 200
     
     
@@ -8763,7 +8763,7 @@ Updates arbitrary key/value metadata. Metadata must be in the format X-Object-Me
            
 
     
-POST v1/{account}/{container}/{object}
+POST /v1/{account}/{container}/{object}
 > Content-Type: application/json
 > Accept: application/json
 < 202
