@@ -2,7 +2,11 @@ HOST: http://localhost:5000
 --- OpenStack API Reference ---
 
 ---       
+
+    
 Use the following OpenStack APIs in your OpenStack cloud: Identity service, Compute, Compute extensions, Image service, Block Storage, and Object Storage. You must install the packages for each API separately. After you authenticate through the Identity service API, you can use the other APIs and extensions to launch server instances, create images, assign metadata to instances and images, create containers and objects, and complete other actions in your OpenStack cloud.
+    
+
     
 To get started with the APIs, see the OpenStack API Quick Start . For detailed information, read descriptions or specifications for each API.
     
@@ -14,12 +18,18 @@ To get started with the APIs, see the OpenStack API Quick Start . For detailed i
 --
 Identity Service API 2.0
     
+
+    
 Gets an authentication token that permits access to the Compute API for 24 hours. The version of the Identity API is 2.0.
     
 --
 
     
 ### Authenticate
+    
+Returns a token when credentials are supplied. A payload of credentials must be included in the body.
+    
+
            
 
     
@@ -34,6 +44,10 @@ EOT
 
     
 ### List Tenants
+    
+Returns a list of tenants.
+    
+
            
 
     
@@ -51,12 +65,18 @@ EOT
 --
 Compute API 2
     
+
+    
 Launches virtual machines (VMs) based on the images uploaded to the system. Also, connects to a server instance securely through SSH once it starts and reboots or resizes server instances as needed. API v1.1 is identical to API v2.
     
 --
 
     
 ### Version Details
+    
+Returns detailed information about this specific version of the API.
+    
+
            
 
     
@@ -82,7 +102,15 @@ GET v2
 
 EOT
     
+A list of supported extensions.
+    
+
+    
 ### List Extensions
+    
+Lists all available extensions.
+    
+
            
 
     
@@ -556,6 +584,10 @@ GET v2/{tenant_id}/extensions/{alias}
 EOT
     
 ### List Limits
+    
+Returns current limits for the account.
+    
+
            
 
     
@@ -651,7 +683,15 @@ GET v2/{tenant_id}/limits
 
 EOT
     
+A list of servers. Each server contains IDs, names, and links -- other attributes are omitted.
+    
+
+    
 ### List Servers
+    
+Lists IDs, names, and links for all servers.
+    
+
            
 
     
@@ -683,6 +723,10 @@ GET v2/{tenant_id}/servers
 EOT
     
 ### Create Server
+    
+Creates a server.
+    
+
            
 
     
@@ -711,7 +755,15 @@ POST v2/{tenant_id}/servers
 
 EOT
     
+A detailed server list.
+    
+
+    
 ### List Detail Servers
+    
+Lists details for all servers.
+    
+
            
 
     
@@ -781,6 +833,10 @@ GET v2/{tenant_id}/servers/detail
 EOT
     
 ### Get Server Details
+    
+Shows information for a specified server.
+    
+
            
 
     
@@ -846,6 +902,10 @@ GET v2/{tenant_id}/servers/{server_id}
 EOT
     
 ### Update Server Name / Administrative Password
+    
+Updates the name and/or administrative password for the specified server.
+    
+
            
 
     
@@ -860,6 +920,10 @@ EOT
 
     
 ### Delete Server
+    
+Deletes the specified server.
+    
+
            
 
     
@@ -871,7 +935,23 @@ DELETE v2/{tenant_id}/servers/{server_id}
 EOT
 
     
+Metadata resource type, this is used for images and servers.
+    
+
+    
+A list of metadata.
+    
+
+    
 ### Create or Replace Metadata
+    
+The metadata items set on the resource are those specified on the requests. Existing metadata items are replaced with the ones provided in the request. Metadata items, set previously, but not specified in the request are removed.
+    
+
+    
+An overLimit ( 413) fault may be thrown if the maximum number of metadata items is exceeded.
+    
+
            
 
     
@@ -890,6 +970,10 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata
 EOT
     
 ### Update Metadata
+    
+Updates resource metadata. Updates will replace existing metadata items with the same key. Items not explicitly mentioned in the request will not be modified. An overLimit ( 413) fault may be thrown if the operation causes the maximum number of metadata items to be exceeded.
+    
+
            
 
     
@@ -912,6 +996,10 @@ POST v2/{tenant_id}/servers/{server_id}/metadata
 EOT
     
 ### List Metadata
+    
+Lists metadata associated with the resource.
+    
+
            
 
     
@@ -931,6 +1019,10 @@ GET v2/{tenant_id}/servers/{server_id}/metadata
 EOT
     
 ### Get Metadata Item
+    
+Retrieves a single metadata item by key.
+    
+
            
 
     
@@ -950,6 +1042,10 @@ GET v2/{tenant_id}/servers/{server_id}/metadata/{key}
 EOT
     
 ### Create or Update Metadata Item
+    
+Sets a metadata item by its key. An overLimit ( 413) fault may be thrown if the operation causes the maximum number of metadata items to be exceeded.
+    
+
            
 
     
@@ -969,6 +1065,10 @@ PUT v2/{tenant_id}/servers/{server_id}/metadata/{key}
 EOT
     
 ### Delete Metadata Item
+    
+Deletes a metadata item.
+    
+
            
 
     
@@ -981,6 +1081,10 @@ EOT
 
     
 ### Change Password
+    
+Changes the password for a server. Specify the changePassword action in the request body.
+    
+
            
 
     
@@ -995,6 +1099,10 @@ EOT
 
     
 ### Reboot Server
+    
+Reboots the specified server. Specify the reboot action in the request body.
+    
+
            
 
     
@@ -1009,6 +1117,10 @@ EOT
 
     
 ### Rebuild Server
+    
+Rebuilds the specified server. Specify the rebuild action in the request body.
+    
+
            
 
     
@@ -1077,6 +1189,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 EOT
     
 ### Resize Server
+    
+Resizes the specified server. Specify the resize action in the request body.
+    
+
            
 
     
@@ -1091,6 +1207,10 @@ EOT
 
     
 ### Confirm Resized Server
+    
+Confirms a pending resize action. Specify the confirmResize action in the request body.
+    
+
            
 
     
@@ -1105,6 +1225,10 @@ EOT
 
     
 ### Revert Resized Server
+    
+Cancels and reverts a pending resize action. Specify the revertResize action in the request body.
+    
+
            
 
     
@@ -1119,6 +1243,10 @@ EOT
 
     
 ### Create Image
+    
+Creates a new image. Specify the createImage action in the request body.
+    
+
            
 
     
@@ -1132,7 +1260,15 @@ POST v2/{tenant_id}/servers/{server_id}/action
 EOT
 
     
+A list of addresses associated with a server.
+    
+
+    
 ### List Addresses
+    
+Lists all server addresses.
+    
+
            
 
     
@@ -1178,7 +1314,15 @@ GET v2/{tenant_id}/servers/ips
 
 EOT
     
+A list of addresses associated with a network.
+    
+
+    
 ### List Addresses by Network
+    
+Lists addresses by network ID.
+    
+
            
 
     
@@ -1203,7 +1347,15 @@ GET v2/{tenant_id}/servers/ips/{network_id}
 
 EOT
     
+A list of images. Each image contains IDs, names, and links -- other attributes are omitted.
+    
+
+    
 ### List Images
+    
+Lists IDs, names, and links for available images.
+    
+
            
 
     
@@ -1352,6 +1504,10 @@ GET v2/{tenant_id}/images
 }
 
 EOT
+    
+A detailed image list.
+    
+
     
 ### List Detail Images
            
@@ -1579,6 +1735,10 @@ GET v2/{tenant_id}/images/detail
 EOT
     
 ### Get Image Details
+    
+Lists details of the specified image.
+    
+
            
 
     
@@ -1623,6 +1783,10 @@ GET v2/{tenant_id}/images/{image_id}
 EOT
     
 ### Delete Image
+    
+Deletes the specified image.
+    
+
            
 
     
@@ -1634,7 +1798,23 @@ DELETE v2/{tenant_id}/images/{image_id}
 EOT
 
     
+Metadata resource type, this is used for images and servers.
+    
+
+    
+A list of metadata.
+    
+
+    
 ### Create or Replace Metadata
+    
+The metadata items set on the resource are those specified on the requests. Existing metadata items are replaced with the ones provided in the request. Metadata items, set previously, but not specified in the request are removed.
+    
+
+    
+An overLimit ( 413) fault may be thrown if the maximum number of metadata items is exceeded.
+    
+
            
 
     
@@ -1653,6 +1833,10 @@ PUT v2/{tenant_id}/images/{image_id}/metadata
 EOT
     
 ### Update Metadata
+    
+Updates resource metadata. Updates will replace existing metadata items with the same key. Items not explicitly mentioned in the request will not be modified. An overLimit ( 413) fault may be thrown if the operation causes the maximum number of metadata items to be exceeded.
+    
+
            
 
     
@@ -1675,6 +1859,10 @@ POST v2/{tenant_id}/images/{image_id}/metadata
 EOT
     
 ### List Metadata
+    
+Lists metadata associated with the resource.
+    
+
            
 
     
@@ -1694,6 +1882,10 @@ GET v2/{tenant_id}/images/{image_id}/metadata
 EOT
     
 ### Get Metadata Item
+    
+Retrieves a single metadata item by key.
+    
+
            
 
     
@@ -1713,6 +1905,10 @@ GET v2/{tenant_id}/images/{image_id}/metadata/{key}
 EOT
     
 ### Create or Update Metadata Item
+    
+Sets a metadata item by its key. An overLimit ( 413) fault may be thrown if the operation causes the maximum number of metadata items to be exceeded.
+    
+
            
 
     
@@ -1732,6 +1928,10 @@ PUT v2/{tenant_id}/images/{image_id}/metadata/{key}
 EOT
     
 ### Delete Metadata Item
+    
+Deletes a metadata item.
+    
+
            
 
     
@@ -1743,7 +1943,15 @@ DELETE v2/{tenant_id}/images/{image_id}/metadata/{key}
 EOT
 
     
+A list of flavors. Each flavor contains IDs, names, and links -- other attributes are omitted.
+    
+
+    
 ### List Flavors
+    
+Lists IDs, names, and links for available flavors.
+    
+
            
 
     
@@ -1830,7 +2038,15 @@ GET v2/{tenant_id}/flavors
 
 EOT
     
+A detailed flavor list.
+    
+
+    
 ### List Detail Flavors
+    
+Lists all details for available flavors.
+    
+
            
 
     
@@ -1918,6 +2134,10 @@ GET v2/{tenant_id}/flavors/detail
 EOT
     
 ### Get Flavor Details
+    
+Lists details for the specified flavor.
+    
+
            
 
     
@@ -1951,6 +2171,8 @@ EOT
 --
 Compute API 2 Extensions
     
+
+    
 Adds capabilities to the core Compute API. Use extensions to add features, MIME types, actions, states, headers, parameters, and resources to the core API. Query the Compute API to list available extensions with a GET request to v2/extensions.
     
 --
@@ -1960,9 +2182,15 @@ Adds capabilities to the core Compute API. Use extensions to add features, MIME 
 --
 Server Admin Actions
     
+
+    
 Permits administrators to perform actions on a server.
     
 --
+
+    
+Pauses a server and changes its status to PAUSED. Specify the pause action in the request body.
+    
 
            
 
@@ -1976,6 +2204,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Unpauses a PAUSED server and changes its status to ACTIVE. Specify the unpause action in the request body.
+    
+
            
 
     
@@ -1987,6 +2219,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Suspends a server and changes its status to SUSPENDED. Specify the suspend action in the request body.
+    
 
            
 
@@ -2000,6 +2236,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Resumes a SUSPENDED server and changes its status to ACTIVE. Specify the resume action in the request body.
+    
+
            
 
     
@@ -2011,6 +2251,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Migrates a server to a host. The scheduler chooses the host. Specify the migrate action in the request body.
+    
 
            
 
@@ -2024,6 +2268,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Resets networking on a server. Specify the resetNetwork action in the request body.
+    
+
            
 
     
@@ -2035,6 +2283,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Injects network information into a server. Specify the injectNetworkInfo action in the request body.
+    
 
            
 
@@ -2048,6 +2300,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Locks a server. Specify the lock action in the request body.
+    
+
            
 
     
@@ -2059,6 +2315,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Unlocks a server. Specify the unlock action in the request body.
+    
 
            
 
@@ -2072,6 +2332,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Backs up a server instance. Specify the createBackup action in the request body.
+    
+
            
 
     
@@ -2083,6 +2347,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Live-migrates a server to a new host without rebooting. Specify the os-migrateLive action in the request body.
+    
 
            
 
@@ -2096,6 +2364,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 {}
 EOT
 
+    
+Resets the state of a server to a specified state. Specify the os-resetState action in the request body.
+    
+
            
 
     
@@ -2107,6 +2379,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Evacuates a server from failed host. Specify the evacuate action in the request body.
+    
 
            
 
@@ -2128,12 +2404,18 @@ EOT
 --
 Agents
     
+
+    
 Creates, updates, and deletes guest agents. Use guest agents to access files on the disk, configure networking, or run other applications or scripts in the guest while it runs. This hypervisor-specific extension is not currently enabled for KVM. Use of guest agents is possible only if the underlying service provider uses the Xen driver.
     
 --
 
     
 ### List Agents
+    
+Lists all agent builds.
+    
+
            
 
     
@@ -2158,6 +2440,10 @@ GET v2/{tenant_id}/os-agents
 EOT
     
 ### Create Agent
+    
+Creates an agent build.
+    
+
            
 
     
@@ -2182,6 +2468,10 @@ POST v2/{tenant_id}/os-agents
 EOT
     
 ### Delete Agent
+    
+Deletes an existing agent build.
+    
+
            
 
     
@@ -2194,6 +2484,10 @@ EOT
 
     
 ### Update Agent
+    
+Updates an agent build.
+    
+
            
 
     
@@ -2218,9 +2512,15 @@ EOT
 --
 Host Aggregates
     
+
+    
 Creates and manages host aggregates. An aggregate assigns metadata to groups of compute nodes. Aggregates are only visible to the cloud provider.
     
 --
+
+    
+Lists all aggregates.
+    
 
            
 
@@ -2248,6 +2548,10 @@ GET v2/{tenant_id}/os-aggregates
    }
 
 EOT
+    
+Creates an aggregate.
+    
+
            
 
     
@@ -2260,6 +2564,10 @@ POST v2/{tenant_id}/os-aggregates
 {}
 EOT
 
+    
+Deletes an aggregate.
+    
+
            
 
     
@@ -2271,6 +2579,10 @@ DELETE v2/{tenant_id}/os-aggregates/{aggregate_id}
 <<<EOT
 {}
 EOT
+
+    
+Gets details about a specified aggregate.
+    
 
            
 
@@ -2299,6 +2611,10 @@ GET v2/{tenant_id}/os-aggregates/{aggregate_id}
    
 
 EOT
+    
+Updates the name, and optionally the availability zone, for a specified aggregate.
+    
+
            
 
     
@@ -2325,6 +2641,10 @@ PUT v2/{tenant_id}/os-aggregates/{aggregate_id}
    }
 
 EOT
+    
+Sets metadata for an aggregate.
+    
+
            
 
     
@@ -2352,6 +2672,10 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
    }
 
 EOT
+    
+Adds a host to an aggregate.
+    
+
            
 
     
@@ -2380,6 +2704,10 @@ POST v2/{tenant_id}/os-aggregates/{aggregate_id}/action
    }
 
 EOT
+    
+Removes a host from an aggregate.
+    
+
            
 
     
@@ -2411,9 +2739,15 @@ EOT
 --
 Cloudpipe
     
+
+    
 Manages virtual vpns for projects.
     
 --
+
+    
+Lists cloudpipes.
+    
 
            
 
@@ -2437,6 +2771,10 @@ GET v2/{tenant_id}/os-cloudpipe
    }
 
 EOT
+    
+Creates a cloudpipe.
+    
+
            
 
     
@@ -2451,6 +2789,10 @@ POST v2/{tenant_id}/os-cloudpipe
    }
 
 EOT
+    
+Updates the virtual private network (VPN) IP address and port for a specified cloudpipe instance.
+    
+
            
 
     
@@ -2468,12 +2810,18 @@ EOT
 --
 Server Console Output
     
+
+    
 Gets the output from the console log for a server.
     
 --
 
     
 ### Get Console Output for Server Instance.
+    
+Gets console output.
+    
+
            
 
     
@@ -2493,9 +2841,15 @@ EOT
 --
 Server VNC Console
     
+
+    
 Accesses a VNC console for a specified server.
     
 --
+
+    
+Gets a console.
+    
 
            
 
@@ -2520,9 +2874,15 @@ EOT
 --
 Server - Extended Create
     
+
+    
 Shows extra information when you create a server.
     
 --
+
+    
+Creates a server with the config_drive extended attribute.
+    
 
            
 
@@ -2551,6 +2911,10 @@ POST v2/{tenant_id}/servers
    }
 
 EOT
+    
+Shows information for a specified server, including the config_drive extended attribute.
+    
+
            
 
     
@@ -2614,6 +2978,10 @@ GET v2/{tenant_id}/servers/{server_id}
    }
 
 EOT
+    
+Lists details for all servers, including the config_drive extended attribute.
+    
+
            
 
     
@@ -2646,9 +3014,15 @@ EOT
 --
 Server Force Delete or Restore
     
+
+    
 Restores or force-deletes a server when you deploy nova with deferred delete on.
     
 --
+
+    
+Force-deletes a server.
+    
 
            
 
@@ -2661,6 +3035,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Reverses the deletion of a server.
+    
 
            
 
@@ -2679,12 +3057,18 @@ EOT
 --
 Server Diagnostics
     
+
+    
 Gets the usage data for a server.
     
 --
 
     
 ### Server Diagnostics
+    
+Gets basic usage data for a specified server.
+    
+
            
 
     
@@ -2718,9 +3102,15 @@ EOT
 --
 Disk Config
     
+
+    
 Extends servers and images with a diskConfig attribute.
     
 --
+
+    
+Creates a server.
+    
 
            
 
@@ -2750,6 +3140,10 @@ POST v2/{tenant_id}/servers
    }
 
 EOT
+    
+Shows information for a specified server.
+    
+
            
 
     
@@ -2816,6 +3210,10 @@ GET v2/{tenant_id}/servers/{server_id}
    
 
 EOT
+    
+Updates a specified server.
+    
+
            
 
     
@@ -2882,6 +3280,10 @@ PUT v2/{tenant_id}/servers/{server_id}
    }
 
 EOT
+    
+Resizes a server.
+    
+
            
 
     
@@ -2893,6 +3295,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Rebuilds a specified server.
+    
 
            
 
@@ -2961,6 +3367,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
    }
 
 EOT
+    
+Lists servers.
+    
+
            
 
     
@@ -3029,6 +3439,10 @@ GET v2/{tenant_id}/servers/detail
    
 
 EOT
+    
+Describes a specific image.
+    
+
            
 
     
@@ -3064,6 +3478,10 @@ GET v2/{tenant_id}/images/{image_id}
    
 
 EOT
+    
+Lists images.
+    
+
            
 
     
@@ -3106,9 +3524,15 @@ EOT
 --
 Extended Availability Zones
     
+
+    
 Shows the instance availability zone for compute nodes (nova-compute). Internal services appear in their own internal availability zone.
     
 --
+
+    
+Gets the availability zone for the specified instance.
+    
 
            
 
@@ -3175,6 +3599,10 @@ GET v2/{tenant_id}/servers/{server_id}
    
 
 EOT
+    
+Lists details for all servers. Includes their current availability zone.
+    
+
            
 
     
@@ -3247,9 +3675,15 @@ EOT
 --
 Image Size
     
+
+    
 Lists details for available images or gets details for a specified image. Includes the OS-EXT-IMG-SIZE:size extended attribute, which shows the image size.
     
 --
+
+    
+Lists details for available images. Includes the image size.
+    
 
            
 
@@ -3485,6 +3919,10 @@ EOT
 {}
 EOT
 
+    
+Gets details for a specified image. Includes the image size.
+    
+
            
 
     
@@ -3533,12 +3971,18 @@ EOT
 --
 Server IP Type
     
+
+    
 Shows the type of the IP addresses assigned to an instance. Type is either fixed or floating.
     
 --
 
     
 ### Server IPs Details
+    
+Shows the type of IP assigned to a specified server, either fixed or floating.
+    
+
            
 
     
@@ -3605,6 +4049,10 @@ GET v2/{tenant_id}/servers/{server_id}/action
 EOT
     
 ### List Servers IPs
+    
+Lists all servers showing their IPs by type, either fixed or floating.
+    
+
            
 
     
@@ -3676,12 +4124,18 @@ EOT
 --
 Server Extended Attributes
     
+
+    
 Shows metadata for servers.
     
 --
 
     
 ### Extended attributes for server detail
+    
+Shows detailed extended server attribute information for all servers.
+    
+
            
 
     
@@ -3752,6 +4206,10 @@ GET v2/servers
 EOT
     
 ### Extended attributes for server show
+    
+Shows extended server attributes for a specified server.
+    
+
            
 
     
@@ -3823,12 +4281,18 @@ EOT
 --
 Extended Instance Status
     
+
+    
 Shows extended status information - vm_state, task_state, and power_state - in detailed server responses.
     
 --
 
     
 ### Show Extended Status for Server
+    
+Shows the extended status attributes - vm_state, power_state, and task_state - in the response for a specified server.
+    
+
            
 
     
@@ -3966,6 +4430,10 @@ GET v2/{tenant_id}/servers/{server_id}
 EOT
     
 ### List Extended Status for Servers
+    
+Shows the extended status attributes - vm_state, power_state, and task_state - in the detailed response for all servers.
+    
+
            
 
     
@@ -4039,9 +4507,15 @@ EOT
 --
 Fixed IPs
     
+
+    
 Shows data for a specified fixed IP, such as host name, CIDR, and address. Also, reserves or frees a fixed IP.
     
 --
+
+    
+Gets data about a specified fixed IP address.
+    
 
            
 
@@ -4060,6 +4534,10 @@ GET v2/{tenant_id}/os-fixed-ips/{fixed_ip}
    }
 
 EOT
+    
+Reserves a fixed IP.
+    
+
            
 
     
@@ -4071,6 +4549,10 @@ POST v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 <<<EOT
 {}
 EOT
+
+    
+Unreserves a fixed IP.
+    
 
            
 
@@ -4089,9 +4571,15 @@ EOT
 --
 Flavor Access
     
+
+    
 Creates and gets details for private flavors. Also, lists, adds and removes tenants' access to private flavors.
     
 --
+
+    
+Lists all flavors. Includes the access type, which is public or private.
+    
 
            
 
@@ -4196,6 +4684,10 @@ GET v2/{tenant_id}/flavors
    }
 
 EOT
+    
+Creates a private flavor.
+    
+
            
 
     
@@ -4227,6 +4719,10 @@ POST v2/{tenant_id}/flavors
    }
 
 EOT
+    
+Gets the flavor access type, which is either public or private.
+    
+
            
 
     
@@ -4256,6 +4752,10 @@ GET v2/{tenant_id}/flavors/{flavor_id}
    }
 
 EOT
+    
+Lists tenants with access to the specified private flavor.
+    
+
            
 
     
@@ -4274,6 +4774,10 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-flavor-access
    
 
 EOT
+    
+Gives the specified tenant access to the specified private flavor.
+    
+
            
 
     
@@ -4294,6 +4798,10 @@ POST v2/{tenant_id}/flavors/{flavor_id}/action
    
 
 EOT
+    
+Revokes access from the specified tenant for the specified private flavor.
+    
+
            
 
     
@@ -4313,9 +4821,15 @@ EOT
 --
 Flavor Extra-Specs
     
+
+    
 Lists, creates, and updates the extra-specs or keys for a flavor.
     
 --
+
+    
+Lists the extra-specs or keys for the specified flavor.
+    
 
            
 
@@ -4332,6 +4846,10 @@ GET v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
    }
 
 EOT
+    
+Creates extra-specs or keys for the specified flavor.
+    
+
            
 
     
@@ -4349,6 +4867,10 @@ POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
    }
 
 EOT
+    
+Updates the value of the specified extra-spec or key.
+    
+
            
 
     
@@ -4363,6 +4885,10 @@ POST v2/{tenant_id}/flavors/{flavor_id}/os-extra_specs
    }
 
 EOT
+    
+Gets the value of the specified key.
+    
+
            
 
     
@@ -4380,9 +4906,15 @@ EOT
 --
 Flavors with the rxtx_factor Extended Attribute
     
+
+    
 Creates a flavor, gets details for a specified flavor, and lists details for available flavors. Includes the rxtx_factor extended attribute, related to configured bandwidth cap values.
     
 --
+
+    
+Creates a flavor. Includes the rxtx_factor extended attribute.
+    
 
            
 
@@ -4415,6 +4947,10 @@ POST v2/{tenant_id}/flavors
    }
 
 EOT
+    
+Gets details for a specified flavor. Includes the rxtx_factor extended attribute.
+    
+
            
 
     
@@ -4449,6 +4985,10 @@ EOT
 <<<EOT
 {}
 EOT
+
+    
+Lists details for available flavors. Includes the rxtx_factor extended attribute.
+    
 
            
 
@@ -4564,9 +5104,15 @@ EOT
 --
 Flavors with Extended Attributes
     
+
+    
 Creates a flavor, gets details for a flavor, and lists details for available flavors. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap extended attributes.
     
 --
+
+    
+Creates a flavor. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap extended attributes.
+    
 
            
 
@@ -4599,6 +5145,10 @@ POST v2/{tenant_id}/flavors
    }
 
 EOT
+    
+Gets details for a specified flavor. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap extended attributes.
+    
+
            
 
     
@@ -4633,6 +5183,10 @@ EOT
 <<<EOT
 {}
 EOT
+
+    
+Lists details for available flavors. Includes the rxtx_factor, OS-FLV-EXT-DATA:ephemeral, and swap extended attributes.
+    
 
            
 
@@ -4748,9 +5302,15 @@ EOT
 --
 Flavors Create or Delete
     
+
+    
 Creates or deletes flavors.
     
 --
+
+    
+Creates a flavor.
+    
 
            
 
@@ -4782,6 +5342,10 @@ POST v2/{tenant_id}/flavors
    }
 
 EOT
+    
+Deletes a flavor.
+    
+
            
 
     
@@ -4797,12 +5361,18 @@ EOT
 --
 Floating IP DNS
     
+
+    
 Manages DNS records associated with IP addresses allocated by the Floating IPs extension. Requests are dispatched to a DNS driver selected at startup.
     
 --
 
     
 ### List DNS Domains
+    
+Lists registered DNS domains published by the DNS drivers.
+    
+
            
 
     
@@ -4824,6 +5394,10 @@ GET v2/{tenant_id}/os-floating-ip-dns
 EOT
     
 ### Create a Domain
+    
+Creates or updates a DNS domain.
+    
+
            
 
     
@@ -4857,6 +5431,10 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}
 EOT
     
 ### Delete a Domain
+    
+Deletes a DNS domain and all associated host entries.
+    
+
            
 
     
@@ -4869,6 +5447,10 @@ EOT
 
     
 ### Create DNS Entry
+    
+Creates or updates a DNS entry.
+    
+
            
 
     
@@ -4890,6 +5472,10 @@ PUT v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 EOT
     
 ### Find Unique DNS Entry
+    
+Finds a unique DNS entry for a specified domain and name.
+    
+
            
 
     
@@ -4911,6 +5497,10 @@ GET v2/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 EOT
     
 ### Delete a DNS entry
+    
+Deletes a specified DNS entry.
+    
+
            
 
     
@@ -4923,6 +5513,10 @@ EOT
 
     
 ### Find DNS Entries
+    
+Finds DNS entries for a specified domain and IP.
+    
+
            
 
     
@@ -4955,12 +5549,18 @@ EOT
 --
 Floating IP Pools
     
+
+    
 Manages groups of floating IPs.
     
 --
 
     
 ### List Floating IP Pools
+    
+Lists floating IP pools.
+    
+
            
 
     
@@ -4985,12 +5585,18 @@ EOT
 --
 Floating IPs Bulk
     
+
+    
 Bulk creates, deletes, and lists floating IPs. By default, the pool is named nova. Use the os-floating-ip-pools extension to view available pools.
     
 --
 
     
 ### List Floating IPs
+    
+Lists all floating IPs.
+    
+
            
 
     
@@ -5027,6 +5633,10 @@ GET v2/{tenant_id}/os-floating-ips-bulk
 EOT
     
 ### Create Floating IPs
+    
+Bulk-creates floating IPs.
+    
+
            
 
     
@@ -5047,6 +5657,10 @@ POST v2/{tenant_id}/os-floating-ips-bulk
 EOT
     
 ### Bulk delete Floating IPs
+    
+Bulk-deletes floating IPs.
+    
+
            
 
     
@@ -5063,6 +5677,10 @@ POST v2/{tenant_id}/os-floating-ips-bulk/delete
 EOT
     
 ### List Floating IPs by host
+    
+Lists all floating IPs for a specified host.
+    
+
            
 
     
@@ -5088,12 +5706,18 @@ EOT
 --
 Floating IPs
     
+
+    
 Assigns and allocates floating IP addresses to instances that run in an OpenStack cloud.
     
 --
 
     
 ### List Floating IPs
+    
+Lists floating IP addresses associated with the tenant or account.
+    
+
            
 
     
@@ -5123,6 +5747,10 @@ GET v2/{tenant_id}/os-floating-ips
 EOT
     
 ### Allocate Floating IP
+    
+Allocates a new floating IP address to a tenant or account.
+    
+
            
 
     
@@ -5145,6 +5773,10 @@ POST v2/{tenant_id}/os-floating-ips
 EOT
     
 ### List Floating IP Detail
+    
+Lists details of the floating IP address associated with floating_IP_address_ID.
+    
+
            
 
     
@@ -5174,6 +5806,10 @@ GET v2/{tenant_id}/os-floating-ips
 EOT
     
 ### Deallocate Floating IP
+    
+Deallocates the floating IP address associated with floating_IP_address_ID.
+    
+
            
 
     
@@ -5186,6 +5822,10 @@ EOT
 
     
 ### Add Floating IP
+    
+Adds a floating IP address to an instance.
+    
+
            
 
     
@@ -5200,6 +5840,10 @@ EOT
 
     
 ### Remove Floating IP
+    
+Removes a floating IP from an instance.
+    
+
            
 
     
@@ -5217,9 +5861,15 @@ EOT
 --
 Hosts
     
+
+    
 Manages physical hosts.
     
 --
+
+    
+Lists all hosts.
+    
 
            
 
@@ -5265,6 +5915,10 @@ GET v2/{tenant_id}/os-hosts
    
 
 EOT
+    
+Shows information for a specified host.
+    
+
            
 
     
@@ -5305,6 +5959,10 @@ GET v2/{tenant_id}/os-hosts/{host_name}
    }
 
 EOT
+    
+Enables a host or puts it in maintenance mode.
+    
+
            
 
     
@@ -5321,6 +5979,10 @@ PUT v2/{tenant_id}/os-hosts/{host_name}
    }
 
 EOT
+    
+Shuts down a host.
+    
+
            
 
     
@@ -5334,6 +5996,10 @@ GET v2/{tenant_id}/os-hosts/{host_name}/shutdown
    }
 
 EOT
+    
+Reboots a host.
+    
+
            
 
     
@@ -5352,9 +6018,15 @@ EOT
 --
 Hypervisors
     
+
+    
 Displays extra statistical information from the machine that hosts the hypervisor through the API for the hypervisor (XenAPI or KVM/libvirt).
     
 --
+
+    
+Lists hypervisors information for each server obtained through the hypervisor-specific API, such as libvirt or XenAPI.
+    
 
            
 
@@ -5375,6 +6047,10 @@ GET v2/{tenant_id}/os-hypervisors
    }
 
 EOT
+    
+Shows detailed hypervisors API information for each server. Typically configured as an admin-only extension using policy.json settings.
+    
+
            
 
     
@@ -5404,12 +6080,18 @@ EOT
 --
 Server List Actions or Get Action Details
     
+
+    
 Permits all users to list available actions for a specified server. Permits administrators to get details for a specified action for a specified server.
     
 --
 
     
 ### Get Server Actions
+    
+Lists available actions for a specified server. Deployers set permissions for this request in the policy.json file. By default, all users can list actions.
+    
+
            
 
     
@@ -5484,9 +6166,15 @@ EOT
 --
 Keypairs
     
+
+    
 Generates, imports, and deletes SSH keys.
     
 --
+
+    
+Lists keypairs associated with the account.
+    
 
            
 
@@ -5509,6 +6197,10 @@ GET v2/{tenant_id}/os-keypairs
    }
 
 EOT
+    
+Generates or imports a keypair.
+    
+
            
 
     
@@ -5529,6 +6221,10 @@ POST v2/{tenant_id}/os-keypairs
    }
 
 EOT
+    
+Deletes a keypair.
+    
+
            
 
     
@@ -5538,6 +6234,10 @@ DELETE v2/{tenant_id}/os-keypairs/{keypair_name}
 <<<EOT
 {}
 EOT
+
+    
+Shows a keypair associated with the account.
+    
 
            
 
@@ -5562,9 +6262,15 @@ EOT
 --
 Servers - Multiple Create
     
+
+    
 Creates one or more servers with an optional reservation ID. The request and response examples show how to create multiple servers with or without a reservation ID.
     
 --
+
+    
+Creates one or more servers with an optional reservation ID.
+    
 
            
 
@@ -5605,12 +6311,18 @@ EOT
 --
 Networks
     
+
+    
 Shows network information for or deletes networks. Also, disassociates a network from a project if you use vlan mode.
     
 --
 
     
 ### Create Network
+    
+Creates a network.
+    
+
            
 
     
@@ -5656,6 +6368,10 @@ POST v2/{tenant_id}
 EOT
     
 ### List Networks
+    
+Lists all networks that are available to the tenant.
+    
+
            
 
     
@@ -5699,6 +6415,10 @@ GET v2/{tenant_id}/os-networks
 EOT
     
 ### Add Network
+    
+Adds a specified network to a project.
+    
+
            
 
     
@@ -5713,6 +6433,10 @@ EOT
 
     
 ### Get Network Detail
+    
+Gets information about a specified network.
+    
+
            
 
     
@@ -5754,6 +6478,10 @@ GET v2/{tenant_id}/os-networks/{id}
 EOT
     
 ### Delete Network
+    
+Deletes a specified network.
+    
+
            
 
     
@@ -5766,6 +6494,10 @@ EOT
 
     
 ### Associate Host
+    
+Associates a specified network with a host.
+    
+
            
 
     
@@ -5780,6 +6512,10 @@ EOT
 
     
 ### Disassociate Host
+    
+Disassociates the host from a specified network.
+    
+
            
 
     
@@ -5794,6 +6530,10 @@ EOT
 
     
 ### Disassociate Network
+    
+Disassociates a specified network from a project so that the network can be reused.
+    
+
            
 
     
@@ -5808,6 +6548,10 @@ EOT
 
     
 ### Disassociate Project
+    
+Disassociates the project from a specified network.
+    
+
            
 
     
@@ -5825,9 +6569,15 @@ EOT
 --
 Quota Sets
     
+
+    
 Permits administrators, depending on policy settings, to view quotas for a tenant and view and update default quotas.
     
 --
+
+    
+Shows quotas for a tenant.
+    
 
            
 
@@ -5855,6 +6605,10 @@ GET v2/{tenant_id}/os-quota-sets/{tenant_id}
    
 
 EOT
+    
+Updates quotas for a tenant.
+    
+
            
 
     
@@ -5882,6 +6636,10 @@ POST v2/{tenant_id}/os-quota-sets/{tenant_id}
    
 
 EOT
+    
+Gets default quotas for a tenant.
+    
+
            
 
     
@@ -5913,9 +6671,15 @@ EOT
 --
 Server Rescue
     
+
+    
 Rescues or unrescues a server.
     
 --
+
+    
+Puts a server in rescue mode. Changes status to RESCUE.
+    
 
            
 
@@ -5931,6 +6695,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
    }
 
 EOT
+    
+Returns a server to its state before being rescued.
+    
+
            
 
     
@@ -5948,9 +6716,15 @@ EOT
 --
 Scheduler Hints
     
+
+    
 Provides information directly to the scheduler when you create a server.
     
 --
+
+    
+Creates a server by using scheduler hints.
+    
 
            
 
@@ -5984,9 +6758,15 @@ EOT
 --
 Security Groups
     
+
+    
 Creates, modifies, and deletes security groups and rules.
     
 --
+
+    
+Lists security groups.
+    
 
            
 
@@ -6008,6 +6788,10 @@ GET v2/{tenant_id}/os-security-groups
    }
 
 EOT
+    
+Creates a security group.
+    
+
            
 
     
@@ -6028,6 +6812,10 @@ POST v2/{tenant_id}/os-security-groups
    }
 
 EOT
+    
+Gets information for a specified security group.
+    
+
            
 
     
@@ -6046,6 +6834,10 @@ GET v2/{tenant_id}/os-security-groups/{security_group_id}
    }
 
 EOT
+    
+Deletes a specified security group.
+    
+
            
 
     
@@ -6055,6 +6847,10 @@ DELETE v2/{tenant_id}/os-security-groups/{security_group_id}
 <<<EOT
 {}
 EOT
+
+    
+Creates a security group rule.
+    
 
            
 
@@ -6080,6 +6876,10 @@ POST v2/{tenant_id}/os-security-group-rules
    }
 
 EOT
+    
+Deletes a security group rule.
+    
+
            
 
     
@@ -6089,6 +6889,10 @@ DELETE v2/{tenant_id}/os-security-group-rules/{security_group_rule_id}
 <<<EOT
 {}
 EOT
+
+    
+Lists security groups for a specified server.
+    
 
            
 
@@ -6115,9 +6919,15 @@ EOT
 --
 Server Password
     
+
+    
 This extension retrieves and resets the encrypted admin password set through metadata service.
     
 --
+
+    
+Gets the administrative password for a specified server.
+    
 
            
 
@@ -6131,6 +6941,10 @@ GET v2/servers/{server_id}/os-server-password
    }
 
 EOT
+    
+Resets the administrative password for a specified server.
+    
+
            
 
     
@@ -6163,9 +6977,15 @@ EOT
 --
 Server Start and Stop
     
+
+    
 Starts and stops a server.
     
 --
+
+    
+Halts a running server. Changes status to STOPPED.
+    
 
            
 
@@ -6178,6 +6998,10 @@ POST v2/{tenant_id}/servers/{server_id}/action
 <<<EOT
 {}
 EOT
+
+    
+Returns a STOPPED server to ACTIVE status.
+    
 
            
 
@@ -6196,9 +7020,15 @@ EOT
 --
 Manage Services
     
+
+    
 Lists, enables, and disables Nova services in all hosts.
     
 --
+
+    
+Lists all running services.
+    
 
            
 
@@ -6246,6 +7076,10 @@ GET v2/{tenant_id}/os-services
    
 
 EOT
+    
+Enables scheduling for a service.
+    
+
            
 
     
@@ -6263,6 +7097,10 @@ PUT v2/{tenant_id}/os-services/enable
    
 
 EOT
+    
+Disables scheduling for a service.
+    
+
            
 
     
@@ -6286,9 +7124,15 @@ EOT
 --
 Simple Usage
     
+
+    
 Reports statistics on compute and storage resources.
     
 --
+
+    
+Lists usage information for all tenants.
+    
 
            
 
@@ -6314,6 +7158,10 @@ GET v2/{tenant_id}/os-simple-tenant-usage
    }
 
 EOT
+    
+Gets usage information for a tenant.
+    
+
            
 
     
@@ -6357,9 +7205,15 @@ EOT
 --
 Used Limits
     
+
+    
 Extends limits to show the usage of per project limits. Shows information such as RAM or instance quotas usage.
     
 --
+
+    
+Returns absolute and rate limit information, including information on currently used absolute limits.
+    
 
            
 
@@ -6443,9 +7297,15 @@ EOT
 --
 Virtual Interfaces
     
+
+    
 Lists the virtual interfaces for a specified server instance.
     
 --
+
+    
+Lists the virtual interfaces for a specified instance.
+    
 
            
 
@@ -6469,12 +7329,22 @@ EOT
 --
 Volume Attachments
     
+
+    
 Attaches volumes created through the volume API to server instances. Also, lists volume attachments for a server instance, gets volume details for a volume attachment, and deletes a volume attachment.
     
 --
 
     
+A list of volume attachments associated with a server.
+    
+
+    
 ### Attach Volume to Server
+    
+Attaches a volume to the specified server.
+    
+
            
 
     
@@ -6497,6 +7367,10 @@ POST v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 EOT
     
 ### List Volume Attachments
+    
+Lists the volume attachments for the specified server.
+    
+
            
 
     
@@ -6525,7 +7399,15 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments
 
 EOT
     
+A list of volume attachments associated with a server.
+    
+
+    
 ### Get Volume Attachment Details
+    
+Lists volume details for the specified volume attachment ID.
+    
+
            
 
     
@@ -6548,6 +7430,10 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments/{attachment_id}
 EOT
     
 ### Delete Volume Attachment
+    
+Deletes the specified volume attachment from the specified server.
+    
+
            
 
     
@@ -6565,12 +7451,18 @@ EOT
 --
 Volume Extension to Compute
     
+
+    
 Manages volumes and snapshots for use with the Compute API.
     
 --
 
     
 ### List Volumes
+    
+Lists the volumes associated with the account. The operation does not require a request body.
+    
+
            
 
     
@@ -6611,6 +7503,10 @@ GET v1.1/{tenant_id}/os-volumes
 EOT
     
 ### List Volumes (Detailed)
+    
+Lists details for a specified volume. The operation does not require a request body.
+    
+
            
 
     
@@ -6651,6 +7547,10 @@ GET v1.1/{tenant_id}/os-volumes/detail
 EOT
     
 ### Create Volume
+    
+Creates a volume. The operation requires a request body.
+    
+
            
 
     
@@ -6679,6 +7579,10 @@ POST v1.1/{tenant_id}/os-volumes/{volume_id}
 EOT
     
 ### Show Volume
+    
+Shows information for a specified volume.
+    
+
            
 
     
@@ -6705,6 +7609,10 @@ GET v1.1/{tenant_id}/os-volumes/{volume_id}
 EOT
     
 ### Delete Volume
+    
+Deletes a specified volume.
+    
+
            
 
     
@@ -6721,6 +7629,10 @@ HTTP/1.1 202 Accepted
 EOT
     
 ### List Volume Types
+    
+Lists volume types.
+    
+
            
 
     
@@ -6747,6 +7659,10 @@ GET v1.1/{tenant_id}/os-volume-types
 EOT
     
 ### Show Volume Type
+    
+Shows information for a specified volume type.
+    
+
            
 
     
@@ -6766,6 +7682,10 @@ GET v1.1/{tenant_id}/os-volume-types/{volume_type_id}
 EOT
     
 ### Create Snapshot
+    
+Creates a snapshot.
+    
+
            
 
     
@@ -6791,6 +7711,10 @@ POST v1.1/{tenant_id}/os-snapshots
 EOT
     
 ### List Snapshots
+    
+Lists snapshots.
+    
+
            
 
     
@@ -6825,6 +7749,10 @@ GET v1.1/{tenant_id}/os-snapshots
 EOT
     
 ### List Snapshots (Detailed)
+    
+Lists details for a specified snapshot. The operation does not require a request body.
+    
+
            
 
     
@@ -6859,6 +7787,10 @@ GET v1.1/{tenant_id}/os-snapshots/detail
 EOT
     
 ### Show Snapshot
+    
+Shows information for a specified snapshot.
+    
+
            
 
     
@@ -6882,6 +7814,14 @@ GET v1.1/{tenant_id}/os-snapshots/{snapshot_id}
 EOT
     
 ### Delete Snapshot
+    
+Deletes a specified snapshot from the account. The operation does not require a request body and does not return a response body.
+    
+
+    
+This operation is asynchronous. You must list snapshots repeatedly to determine whether the snapshot was deleted.
+    
+
            
 
     
@@ -6901,12 +7841,18 @@ EOT
 --
 Image Service API 1
     
+
+    
 Loads images for use at launch time by the Compute API. Also, assigns metadata to images. Some cloud implementations do not expose this API and offer pretested images only.
     
 --
 
     
 ### List Image
+    
+Lists public VM images.
+    
+
            
 
     
@@ -6927,6 +7873,10 @@ GET v1/images
 EOT
     
 ### create Image
+    
+Registers a virtual machine (VM) image.
+    
+
            
 
     
@@ -6941,6 +7891,10 @@ EOT
 
     
 ### List Detail Image
+    
+Lists all details for available images.
+    
+
            
 
     
@@ -6955,6 +7909,10 @@ EOT
 
     
 ### Get Image Details
+    
+Shows details for the specified image.
+    
+
            
 
     
@@ -6983,6 +7941,10 @@ GET v1/images/{image_id}
 EOT
     
 ### update Image
+    
+Updates an image, uploads an image file, or updates metadata for an image.
+    
+
            
 
     
@@ -6995,6 +7957,10 @@ EOT
 
     
 ### Delete Image
+    
+Deletes the specified image.
+    
+
            
 
     
@@ -7007,6 +7973,10 @@ EOT
 
     
 ### Replace Member
+    
+Replaces a membership list for an image.
+    
+
            
 
     
@@ -7021,6 +7991,14 @@ EOT
 
     
 ### Delete Image
+    
+Adds a member to an image.
+    
+
+    
+If you omit the request body from this call, this request adds the membership to the image, leaves the existing memberships unmodified, and defaults new memberships to have can_share set to false.
+    
+
            
 
     
@@ -7035,6 +8013,10 @@ EOT
 
     
 ### Delete Image
+    
+Removes a member from an image.
+    
+
            
 
     
@@ -7049,6 +8031,10 @@ EOT
 
     
 ### List Shared Images
+    
+Lists the VM images shared with a specified owner. The owner ID is the tenant ID.
+    
+
            
 
     
@@ -7066,12 +8052,18 @@ EOT
 --
 Block Storage API 2.0
     
+
+    
 Manages volumes and snapshots for use with the Volume API (cinder services).
     
 --
 
     
 ### Create Volume
+    
+Creates a volume.
+    
+
            
 
     
@@ -7101,6 +8093,10 @@ POST v2/{tenant_id}/volumes
 EOT
     
 ### List Volumes
+    
+Lists summary information for all Cinder volumes that are accessible to the tenant who submits the request.
+    
+
            
 
     
@@ -7144,6 +8140,10 @@ GET v2/{tenant_id}/volumes
 EOT
     
 ### List Volumes (Detailed)
+    
+Lists detailed information for all Cinder volumes that are accessible to the tenant who submits the request.
+    
+
            
 
     
@@ -7219,6 +8219,10 @@ GET v2/{tenant_id}/volumes/detail
 EOT
     
 ### Show Volume Information
+    
+Shows information about a specified volume.
+    
+
            
 
     
@@ -7262,6 +8266,10 @@ GET v2/{tenant_id}/volumes/{volume_id}
 EOT
     
 ### Update Volume
+    
+Updates a volume.
+    
+
            
 
     
@@ -7305,6 +8313,10 @@ PUT v2/{tenant_id}/volumes/{volume_id}
 EOT
     
 ### Delete Volume
+    
+Deletes a specified volume.
+    
+
            
 
     
@@ -7317,6 +8329,10 @@ EOT
 
     
 ### List Volume Types
+    
+Lists volume types.
+    
+
            
 
     
@@ -7342,6 +8358,10 @@ GET v2/{tenant_id}/types
 EOT
     
 ### Show Volume Type Information
+    
+Shows information about a specified volume type.
+    
+
            
 
     
@@ -7362,6 +8382,10 @@ GET v2/{tenant_id}/types/{volume_type_id}
 EOT
     
 ### Create Snapshot
+    
+Creates a snapshot, which is a point-in-time copy of a volume. You can create a new volume from the snapshot.
+    
+
            
 
     
@@ -7387,6 +8411,10 @@ POST v2/{tenant_id}/snapshots
 EOT
     
 ### List Snapshots
+    
+Lists summary information for all Cinder snapshots that are accessible to the tenant who submits the request.
+    
+
            
 
     
@@ -7422,6 +8450,10 @@ GET v2/{tenant_id}/snapshots
 EOT
     
 ### List Snapshots (Detailed)
+    
+Lists detailed information for all Cinder snapshots that are accessible to the tenant who submits the request.
+    
+
            
 
     
@@ -7461,6 +8493,10 @@ GET v2/{tenant_id}/snapshots/detail
 EOT
     
 ### Show Snapshot
+    
+Shows information for a specified snapshot.
+    
+
            
 
     
@@ -7486,6 +8522,10 @@ GET v2/{tenant_id}/snapshots/{snapshot_id}
 EOT
     
 ### Update Snapshot
+    
+Updates a specified snapshot.
+    
+
            
 
     
@@ -7511,6 +8551,10 @@ PUT v2/{tenant_id}/snapshots/{snapshot_id}
 EOT
     
 ### Delete Snapshot
+    
+Deletes a specified snapshot.
+    
+
            
 
     
@@ -7526,12 +8570,18 @@ EOT
 --
 Object Storage API 1.0
     
+
+    
 Manages the accounts, containers, and objects in the object storage system.
     
 --
 
     
 ### List Containers
+    
+Lists storage containers, sorted by name.
+    
+
            
 
     
@@ -7550,6 +8600,10 @@ GET v1/{account}
 EOT
     
 ### Retrieve Account Metadata
+    
+Gets container metadata, such as the number of containers and the total bytes stored in OpenStack Object Storage, for the tenant.
+    
+
            
 
     
@@ -7562,6 +8616,10 @@ HEAD v1/{account}
 
     
 ### Create/Update Account Metadata
+    
+Creates or updates account metadata by associating custom metadata headers with the account level URI. These headers must have the format, X-Account-Meta-*.
+    
+
            
 
     
@@ -7576,6 +8634,10 @@ EOT
 
     
 ### List Objects
+    
+Lists the objects stored in the container.
+    
+
            
 
     
@@ -7602,6 +8664,10 @@ GET v1/{account}/{container}
 EOT
     
 ### Create Container
+    
+Creates a container.
+    
+
            
 
     
@@ -7616,6 +8682,10 @@ EOT
 
     
 ### Delete Container
+    
+Deletes an empty container.
+    
+
            
 
     
@@ -7628,6 +8698,10 @@ EOT
 
     
 ### Get Container Metadata
+    
+Gets container metadata, including the number of objects and the total bytes of all objects stored in the container.
+    
+
            
 
     
@@ -7640,6 +8714,10 @@ HEAD v1/{account}/{container}
 
     
 ### Create or Update Container Metadata
+    
+Creates or updates the arbitrary container metadata by associating custom metadata headers with the container level URI. These headers must have the format, X-Container-Meta-*.
+    
+
            
 
     
@@ -7654,6 +8732,10 @@ EOT
 
     
 ### Get Object Data
+    
+Gets data for the specified object.
+    
+
            
 
     
@@ -7666,6 +8748,10 @@ EOT
 
     
 ### Create or Update Object
+    
+Creates or updates the content and metadata for a specified object.
+    
+
            
 
     
@@ -7680,6 +8766,10 @@ EOT
 
     
 ### Delete Object
+    
+Permanently deletes an object from the OpenStack Object Storage system. In combination with the COPY command, you can use COPY and then DELETE to effectively move an object.
+    
+
            
 
     
@@ -7692,6 +8782,10 @@ EOT
 
     
 ### Copy Object
+    
+Copies an object to another object with a new name in the OpenStack Object Storage system.
+    
+
            
 
     
@@ -7706,6 +8800,10 @@ EOT
 
     
 ### Get Object Metadata
+    
+Gets object metadata and other standard HTTP headers.
+    
+
            
 
     
@@ -7718,6 +8816,10 @@ HEAD v1/{account}/{container}/{object}
 
     
 ### Update Object Metadata
+    
+Updates arbitrary key/value metadata. Metadata must be in the format X-Object-Meta-*. You can also assign X-Delete-At or X-Delete-After to expiring objects. You cannot use this operation to change other headers, such as Content-Type.
+    
+
            
 
     
