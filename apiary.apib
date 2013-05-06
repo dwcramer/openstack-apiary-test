@@ -102,10 +102,6 @@ GET v2
 
 EOT
     
-A list of supported extensions.
-    
-
-    
 ### List Extensions
     
 Lists all available extensions.
@@ -683,10 +679,6 @@ GET v2/{tenant_id}/limits
 
 EOT
     
-A list of servers. Each server contains IDs, names, and links -- other attributes are omitted.
-    
-
-    
 ### List Servers
     
 Lists IDs, names, and links for all servers.
@@ -754,10 +746,6 @@ POST v2/{tenant_id}/servers
 }
 
 EOT
-    
-A detailed server list.
-    
-
     
 ### List Detail Servers
     
@@ -933,14 +921,6 @@ DELETE v2/{tenant_id}/servers/{server_id}
 <<<EOT
 {}
 EOT
-
-    
-Metadata resource type, this is used for images and servers.
-    
-
-    
-A list of metadata.
-    
 
     
 ### Create or Replace Metadata
@@ -1260,10 +1240,6 @@ POST v2/{tenant_id}/servers/{server_id}/action
 EOT
 
     
-A list of addresses associated with a server.
-    
-
-    
 ### List Addresses
     
 Lists all server addresses.
@@ -1314,10 +1290,6 @@ GET v2/{tenant_id}/servers/ips
 
 EOT
     
-A list of addresses associated with a network.
-    
-
-    
 ### List Addresses by Network
     
 Lists addresses by network ID.
@@ -1346,10 +1318,6 @@ GET v2/{tenant_id}/servers/ips/{network_id}
 
 
 EOT
-    
-A list of images. Each image contains IDs, names, and links -- other attributes are omitted.
-    
-
     
 ### List Images
     
@@ -1504,10 +1472,6 @@ GET v2/{tenant_id}/images
 }
 
 EOT
-    
-A detailed image list.
-    
-
     
 ### List Detail Images
            
@@ -1798,14 +1762,6 @@ DELETE v2/{tenant_id}/images/{image_id}
 EOT
 
     
-Metadata resource type, this is used for images and servers.
-    
-
-    
-A list of metadata.
-    
-
-    
 ### Create or Replace Metadata
     
 The metadata items set on the resource are those specified on the requests. Existing metadata items are replaced with the ones provided in the request. Metadata items, set previously, but not specified in the request are removed.
@@ -1943,10 +1899,6 @@ DELETE v2/{tenant_id}/images/{image_id}/metadata/{key}
 EOT
 
     
-A list of flavors. Each flavor contains IDs, names, and links -- other attributes are omitted.
-    
-
-    
 ### List Flavors
     
 Lists IDs, names, and links for available flavors.
@@ -2037,10 +1989,6 @@ GET v2/{tenant_id}/flavors
 }
 
 EOT
-    
-A detailed flavor list.
-    
-
     
 ### List Detail Flavors
     
@@ -7336,10 +7284,6 @@ Attaches volumes created through the volume API to server instances. Also, lists
 --
 
     
-A list of volume attachments associated with a server.
-    
-
-    
 ### Attach Volume to Server
     
 Attaches a volume to the specified server.
@@ -7398,10 +7342,6 @@ GET v2/{tenant_id}/servers/{server_id}/os-volume_attachments
    
 
 EOT
-    
-A list of volume attachments associated with a server.
-    
-
     
 ### Get Volume Attachment Details
     
